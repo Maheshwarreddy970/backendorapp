@@ -44,19 +44,17 @@ export function Step3Addons({ service }: { service: any }) {
                 key={addon.id}
                 type="button"
                 onClick={() => toggleAddOn(addon)}
-                className={`flex w-full items-center justify-between rounded-xl border p-4 text-left transition-all sm:p-5 ${
-                  isSelected
+                className={`flex w-full items-center justify-between rounded-xl border p-4 text-left transition-all sm:p-5 ${isSelected
                     ? "border-primary bg-primary/5 ring-1 ring-primary/20"
                     : "border-border bg-background hover:border-primary/40"
-                }`}
+                  }`}
               >
                 <div className="flex min-w-0 items-center gap-4 sm:gap-5">
                   <div
-                    className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-md border transition-colors sm:h-6 sm:w-6 ${
-                      isSelected
+                    className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-md border transition-colors sm:h-6 sm:w-6 ${isSelected
                         ? "border-primary bg-primary text-primary-foreground"
                         : "border-border bg-background"
-                    }`}
+                      }`}
                   >
                     {isSelected ? <Check className="h-3 w-3 sm:h-4 sm:w-4" /> : null}
                   </div>
@@ -71,20 +69,19 @@ export function Step3Addons({ service }: { service: any }) {
                       </p>
                     ) : (
                       <p className="mt-1 text-sm text-muted-foreground">
-                        +₹{addon.price} • {addon.durationMinutes || 0} mins
+                        +${addon.price} • {addon.durationMinutes || 0} mins
                       </p>
                     )}
                   </div>
                 </div>
 
                 <Badge
-                  className={`ml-4 shrink-0 px-3 py-1 text-xs sm:text-sm ${
-                    isSelected
+                  className={`ml-4 shrink-0 px-3 py-1 text-xs sm:text-sm ${isSelected
                       ? "bg-primary text-primary-foreground hover:bg-primary"
                       : "bg-muted text-foreground hover:bg-muted"
-                  }`}
+                    }`}
                 >
-                  +₹{addon.price}
+                  +${addon.price}
                 </Badge>
               </button>
             );
@@ -99,15 +96,15 @@ export function Step3Addons({ service }: { service: any }) {
       </div>
 
       <div className="flex items-center justify-between  gap-3 border-t pt-4 sm:pt-6">
-        <Button  onClick={prevStep}           className=" bg-transparent text-primary border border-primary hover:bg-primary/5  shadow  "
->
+        <Button onClick={prevStep} className=" bg-transparent text-primary border border-primary hover:bg-primary/5  shadow  "
+        >
           <ArrowLeft className="mr-2 h-4 w-4" />
           Back
         </Button>
 
         <Button onClick={nextStep} className="min-w-[160px] rounded-xl px-6">
           {selectedAddOns.length > 0
-            ? `Continue (₹${selectedTotal} added)`
+            ? `Continue ($${selectedTotal} added)`
             : "Skip Add-ons"}
         </Button>
       </div>

@@ -58,7 +58,7 @@ export default async function BookingsPage() {
 
                 <div className="text-left lg:text-right">
                   <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">Total</p>
-                  <p className="mt-1 text-lg font-semibold text-zinc-900">₹{booking.totalPrice}</p>
+                  <p className="mt-1 text-lg font-semibold text-zinc-900">${booking.totalPrice}</p>
                 </div>
               </div>
 
@@ -88,7 +88,7 @@ export default async function BookingsPage() {
                   <div className="mt-3 flex flex-wrap gap-2">
                     {booking.addOns.map((addon) => (
                       <span key={addon.id} className="rounded-full bg-amber-50 px-3 py-1 text-xs font-medium text-amber-900">
-                        {addon.name} · ₹{addon.price}
+                        {addon.name} · ${addon.price}
                       </span>
                     ))}
                   </div>
@@ -104,7 +104,7 @@ export default async function BookingsPage() {
             </article>
           ))}
         </div>
-      )} 
+      )}
     </section>
   );
 }

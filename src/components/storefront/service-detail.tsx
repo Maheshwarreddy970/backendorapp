@@ -123,7 +123,7 @@ export function ServiceDetail({ service, reviews }: { service: any; reviews: any
                         <div className="mt-5 flex items-baseline gap-2">
                             <span className="text-xs uppercase tracking-wide text-muted-foreground">From</span>
                             <span className="text-3xl font-semibold text-foreground">
-                                ₹{startingPrice.toFixed(0)}
+                                ${startingPrice.toFixed(0)}
                             </span>
                         </div>
 
@@ -137,11 +137,11 @@ export function ServiceDetail({ service, reviews }: { service: any; reviews: any
                             <div>
                                 <p className="text-xs uppercase tracking-wide text-muted-foreground">Estimated total</p>
                                 <div className="mt-1 text-2xl font-semibold tracking-tight text-foreground">
-                                    ₹{total.toFixed(0)}
+                                    ${total.toFixed(0)}
                                 </div>
                                 {addOnsTotal > 0 && (
                                     <p className="mt-1 text-xs text-muted-foreground">
-                                        ₹{tierPrice.toFixed(0)} service + ₹{addOnsTotal.toFixed(0)} add-ons
+                                        ${tierPrice.toFixed(0)} service + ${addOnsTotal.toFixed(0)} add-ons
                                     </p>
                                 )}
                             </div>
@@ -228,17 +228,15 @@ export function ServiceDetail({ service, reviews }: { service: any; reviews: any
                                                 <TableRow
                                                     key={tier.id}
                                                     onClick={() => setSelectedTierId(tier.id)}
-                                                    className={`cursor-pointer transition-colors ${
-                                                        selected ? "bg-amber-50 hover:bg-amber-50" : "hover:bg-muted/40"
-                                                    }`}
+                                                    className={`cursor-pointer transition-colors ${selected ? "bg-amber-50 hover:bg-amber-50" : "hover:bg-muted/40"
+                                                        }`}
                                                 >
                                                     <TableCell>
                                                         <span
-                                                            className={`flex h-5 w-5 items-center justify-center rounded-full border-2 transition-colors ${
-                                                                selected
+                                                            className={`flex h-5 w-5 items-center justify-center rounded-full border-2 transition-colors ${selected
                                                                     ? "border-[#FFC357] bg-[#FFC357]"
                                                                     : "border-border bg-background"
-                                                            }`}
+                                                                }`}
                                                         >
                                                             {selected && <Check className="h-3 w-3 text-white" strokeWidth={3} />}
                                                         </span>
@@ -250,7 +248,7 @@ export function ServiceDetail({ service, reviews }: { service: any; reviews: any
                                                         {tier.minKg}–{tier.maxKg} kg
                                                     </TableCell>
                                                     <TableCell className="text-right font-semibold text-foreground">
-                                                        ₹{tier.price}
+                                                        ${tier.price}
                                                     </TableCell>
                                                 </TableRow>
                                             );
@@ -261,17 +259,15 @@ export function ServiceDetail({ service, reviews }: { service: any; reviews: any
                                                 <TableRow
                                                     key={label}
                                                     onClick={() => setSelectedTierId(label)}
-                                                    className={`cursor-pointer transition-colors ${
-                                                        selected ? "bg-amber-50 hover:bg-amber-50" : "hover:bg-muted/40"
-                                                    }`}
+                                                    className={`cursor-pointer transition-colors ${selected ? "bg-amber-50 hover:bg-amber-50" : "hover:bg-muted/40"
+                                                        }`}
                                                 >
                                                     <TableCell>
                                                         <span
-                                                            className={`flex h-5 w-5 items-center justify-center rounded-full border-2 transition-colors ${
-                                                                selected
+                                                            className={`flex h-5 w-5 items-center justify-center rounded-full border-2 transition-colors ${selected
                                                                     ? "border-[#FFC357] bg-[#FFC357]"
                                                                     : "border-border bg-background"
-                                                            }`}
+                                                                }`}
                                                         >
                                                             {selected && <Check className="h-3 w-3 text-white" strokeWidth={3} />}
                                                         </span>
@@ -280,7 +276,7 @@ export function ServiceDetail({ service, reviews }: { service: any; reviews: any
                                                         {label}
                                                     </TableCell>
                                                     <TableCell className="text-right font-semibold text-foreground">
-                                                        ₹{String(price)}
+                                                        ${String(price)}
                                                     </TableCell>
                                                 </TableRow>
                                             );
@@ -303,19 +299,17 @@ export function ServiceDetail({ service, reviews }: { service: any; reviews: any
                                             key={addon.id}
                                             type="button"
                                             onClick={() => toggleAddOn(addon.id)}
-                                            className={`flex items-center justify-between rounded-lg border px-4 py-3 text-left transition-colors ${
-                                                checked
+                                            className={`flex items-center justify-between rounded-lg border px-4 py-3 text-left transition-colors ${checked
                                                     ? "border-[#FFC357] bg-amber-50"
                                                     : "border-border hover:bg-muted/40"
-                                            }`}
+                                                }`}
                                         >
                                             <div className="flex items-center gap-3">
                                                 <span
-                                                    className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-md border-2 transition-colors ${
-                                                        checked
+                                                    className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-md border-2 transition-colors ${checked
                                                             ? "border-[#FFC357] bg-[#FFC357]"
                                                             : "border-border bg-background"
-                                                    }`}
+                                                        }`}
                                                 >
                                                     {checked && <Check className="h-3.5 w-3.5 text-white" strokeWidth={3} />}
                                                 </span>
@@ -326,7 +320,7 @@ export function ServiceDetail({ service, reviews }: { service: any; reviews: any
                                                     </p>
                                                 </div>
                                             </div>
-                                            <p className="text-sm font-semibold text-foreground">+₹{addon.price || 0}</p>
+                                            <p className="text-sm font-semibold text-foreground">+${addon.price || 0}</p>
                                         </button>
                                     );
                                 })}
@@ -349,11 +343,11 @@ export function ServiceDetail({ service, reviews }: { service: any; reviews: any
                         <div>
                             <p className="text-xs uppercase tracking-wide text-muted-foreground">Estimated total</p>
                             <div className="mt-1 text-3xl font-semibold tracking-tight text-foreground">
-                                ₹{total.toFixed(0)}
+                                ${total.toFixed(0)}
                             </div>
                             {addOnsTotal > 0 && (
                                 <p className="mt-1 text-xs text-muted-foreground">
-                                    ₹{tierPrice.toFixed(0)} service + ₹{addOnsTotal.toFixed(0)} add-ons
+                                    ${tierPrice.toFixed(0)} service + ${addOnsTotal.toFixed(0)} add-ons
                                 </p>
                             )}
                         </div>
@@ -404,7 +398,7 @@ export function ServiceDetail({ service, reviews }: { service: any; reviews: any
                 <div className="mx-auto flex max-w-6xl items-center justify-between gap-3">
                     <div>
                         <p className="text-[10px] uppercase tracking-wide text-muted-foreground">Total</p>
-                        <p className="text-lg font-semibold leading-tight text-foreground">₹{total.toFixed(0)}</p>
+                        <p className="text-lg font-semibold leading-tight text-foreground">${total.toFixed(0)}</p>
                     </div>
                     <Link
                         href={`/booking?service=${service.slug || service.id}`}

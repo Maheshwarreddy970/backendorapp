@@ -182,7 +182,7 @@ export function ServicesCard({ service }: { service: any }) {
                 <div className="mt-4  flex  items-baseline justify-end gap-2 border-y border-dashed border-border/60 py-4">
                     <span className="text-xs font-medium text-muted-foreground/70">from</span>
                     <span className="text-3xl font-semibold  leading-none tracking-tight text-foreground">
-                        ₹{startingPrice.toFixed(0)}
+                        ${startingPrice.toFixed(0)}
                     </span>
 
                 </div>

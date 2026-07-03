@@ -161,7 +161,7 @@ function ExpandDetails({
                                     {tier.label || `Tier ${i + 1}`}
                                     {tier.price != null && (
                                         <span className="ml-1.5 font-medium text-foreground">
-                                            ₹{tier.price}
+                                            ${tier.price}
                                         </span>
                                     )}
                                 </span>
@@ -360,7 +360,7 @@ function ServiceCard({
                             <IndianRupee className="h-4 w-4" />
                             Fixed
                             <span className="ml-0.5 rounded-full bg-blue-50 px-2.5 py-0.5 text-xs font-medium text-blue-800">
-                                ₹{service.basePrice || 0}
+                                ${service.basePrice || 0}
                             </span>
                         </span>
                     )}

@@ -201,8 +201,8 @@ export function Step2PetDetails() {
                       type="button"
                       onClick={() => handleSizeSelect(size)}
                       className={`rounded-2xl border px-4 py-3 text-left transition ${active
-                          ? "border-primary bg-primary/5 ring-1 ring-primary/20"
-                          : "border-border/60 bg-background hover:bg-muted/30"
+                        ? "border-primary bg-primary/5 ring-1 ring-primary/20"
+                        : "border-border/60 bg-background hover:bg-muted/30"
                         }`}
                     >
                       <div className="flex items-start justify-between gap-3">
@@ -258,7 +258,7 @@ export function Step2PetDetails() {
 
                       <div className="shrink-0 text-right">
                         <p className="text-lg font-semibold text-primary">
-                          ₹{servicePrice || 0}
+                          ${servicePrice || 0}
                         </p>
                       </div>
                     </div>
@@ -296,8 +296,8 @@ export function Step2PetDetails() {
                 type="button"
                 onClick={() => updateSelectedPet({ vaccinated: true })}
                 className={`rounded-2xl border p-4 text-left transition ${selectedPet.vaccinated === true
-                    ? "border-emerald-500 bg-emerald-50 ring-1 ring-emerald-200"
-                    : "border-border/60 bg-background hover:bg-muted/30"
+                  ? "border-emerald-500 bg-emerald-50 ring-1 ring-emerald-200"
+                  : "border-border/60 bg-background hover:bg-muted/30"
                   }`}
               >
                 <div className="flex items-start justify-between gap-3">
@@ -305,8 +305,8 @@ export function Step2PetDetails() {
                     <div className="flex items-center gap-2">
                       <ShieldCheck
                         className={`size-4 ${selectedPet.vaccinated === true
-                            ? "text-emerald-600"
-                            : "text-muted-foreground"
+                          ? "text-emerald-600"
+                          : "text-muted-foreground"
                           }`}
                       />
                       <span className="font-medium text-foreground">Yes</span>
@@ -326,8 +326,8 @@ export function Step2PetDetails() {
                 type="button"
                 onClick={() => updateSelectedPet({ vaccinated: false })}
                 className={`rounded-2xl border p-4 text-left transition ${selectedPet.vaccinated === false
-                    ? "border-amber-500 bg-amber-50 ring-1 ring-amber-200"
-                    : "border-border/60 bg-background hover:bg-muted/30"
+                  ? "border-amber-500 bg-amber-50 ring-1 ring-amber-200"
+                  : "border-border/60 bg-background hover:bg-muted/30"
                   }`}
               >
                 <div className="flex items-start justify-between gap-3">
@@ -335,8 +335,8 @@ export function Step2PetDetails() {
                     <div className="flex items-center gap-2">
                       <ShieldAlert
                         className={`size-4 ${selectedPet.vaccinated === false
-                            ? "text-amber-600"
-                            : "text-muted-foreground"
+                          ? "text-amber-600"
+                          : "text-muted-foreground"
                           }`}
                       />
                       <span className="font-medium text-foreground">No</span>
@@ -434,7 +434,7 @@ export function Step2PetDetails() {
 
             <div className="flex items-center justify-between gap-3">
               <span className="text-muted-foreground">Price</span>
-              <span className="font-medium text-foreground">₹{servicePrice || 0}</span>
+              <span className="font-medium text-foreground">${servicePrice || 0}</span>
             </div>
 
             <div className="flex items-center justify-between gap-3">
@@ -466,8 +466,8 @@ export function Step2PetDetails() {
       </div>
 
       <div className="flex flex-col-reverse gap-3 border-t pt-5 sm:flex-row sm:items-center sm:justify-between">
-        <Button onClick={prevStep}           className=" bg-transparent text-primary border border-primary hover:bg-primary/5  shadow  "
->
+        <Button onClick={prevStep} className=" bg-transparent text-primary border border-primary hover:bg-primary/5  shadow  "
+        >
           <ArrowLeft className="mr-2 size-4" />
           Back
         </Button>

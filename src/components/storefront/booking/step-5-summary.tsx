@@ -364,7 +364,7 @@ export function Step5Summary() {
                     const discountText =
                       coupon.type === "percent"
                         ? `${coupon.value}% OFF`
-                        : `₹${coupon.value} OFF`;
+                        : `$${coupon.value} OFF`;
 
                     return (
                       <div
@@ -390,11 +390,10 @@ export function Step5Summary() {
                             type="button"
                             variant="secondary"
                             onClick={() => handleCopyCoupon(code)}
-                            className={`h-8 rounded-lg text-xs font-medium px-3 flex items-center gap-1.5 transition-all border ${
-                              isCopied 
-                                ? "bg-emerald-500/10 text-emerald-600 border-emerald-500/20 hover:bg-emerald-500/10" 
+                            className={`h-8 rounded-lg text-xs font-medium px-3 flex items-center gap-1.5 transition-all border ${isCopied
+                                ? "bg-emerald-500/10 text-emerald-600 border-emerald-500/20 hover:bg-emerald-500/10"
                                 : "bg-background text-muted-foreground hover:bg-muted border-border/40"
-                            }`}
+                              }`}
                           >
                             {isCopied ? (
                               <>
@@ -462,12 +461,12 @@ export function Step5Summary() {
 
             <div className="flex justify-between gap-4 text-muted-foreground">
               <span>Service price</span>
-              <span className="font-medium text-foreground">₹{servicePrice}</span>
+              <span className="font-medium text-foreground">${servicePrice}</span>
             </div>
 
             <div className="flex justify-between gap-4 text-muted-foreground">
               <span>Add-ons ({selectedAddOns.length})</span>
-              <span className="font-medium text-foreground">₹{addOnsTotal}</span>
+              <span className="font-medium text-foreground">${addOnsTotal}</span>
             </div>
 
             {selectedAddOns.length > 0 && (
@@ -479,7 +478,7 @@ export function Step5Summary() {
                   >
                     <span className="text-muted-foreground">{addon.name}</span>
                     <span className="font-medium text-foreground">
-                      ₹{Number(addon.price || 0)}
+                      ${Number(addon.price || 0)}
                     </span>
                   </div>
                 ))}
@@ -489,14 +488,14 @@ export function Step5Summary() {
             <div className="flex justify-between gap-4 text-muted-foreground">
               <span>Subtotal</span>
               <span className="font-medium text-foreground">
-                ₹{subtotalBeforeCoupon}
+                ${subtotalBeforeCoupon}
               </span>
             </div>
 
             <div className="flex justify-between gap-4 text-muted-foreground">
               <span>Coupon discount</span>
               <span className="font-medium text-emerald-600 font-semibold">
-                -₹{couponDiscount}
+                -${couponDiscount}
               </span>
             </div>
 
@@ -504,7 +503,7 @@ export function Step5Summary() {
 
             <div className="flex justify-between gap-4 text-lg font-semibold text-foreground">
               <span>Total</span>
-              <span className="text-primary text-xl font-bold">₹{totalPrice}</span>
+              <span className="text-primary text-xl font-bold">${totalPrice}</span>
             </div>
           </div>
 

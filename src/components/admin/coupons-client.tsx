@@ -60,7 +60,7 @@ export function CouponsClient({ initialCoupons }: { initialCoupons: any[] }) {
                       </Badge>
                     ) : (
                       <Badge className="bg-blue-100 text-primary hover:bg-blue-200 dark:bg-blue-900/40 dark:text-blue-400 border-none shadow-none">
-                        ₹{coupon.value} OFF
+                        ${coupon.value} OFF
                       </Badge>
                     )}
                     <span className="text-xs text-slate-400 flex items-center gap-1">

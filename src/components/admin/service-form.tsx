@@ -265,7 +265,7 @@ function WeightTierRow({
           />
         </Field>
 
-        <Field label="Price (₹)">
+        <Field label="Price ($)">
           <NoScrollNumberInput
             min={0}
             step="0.01"
@@ -312,7 +312,7 @@ function AddOnRow({
           />
         </Field>
 
-        <Field label="Price (₹)">
+        <Field label="Price ($)">
           <NoScrollNumberInput
             min={0}
             step="0.01"
@@ -570,7 +570,7 @@ export function ServiceForm({
           </div>
 
           {pricingModel === "FIXED" ? (
-            <Field label="Base price (₹)">
+            <Field label="Base price ($)">
               <div className="relative w-48">
                 <IndianRupee className="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-muted-foreground/50" />
                 <NoScrollNumberInput

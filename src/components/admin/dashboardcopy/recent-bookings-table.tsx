@@ -92,7 +92,7 @@ export function RecentBookingsTable({ bookings }: { bookings: any[] }) {
                     </td>
 
                     <td className="py-3 pr-4 font-medium">
-                      ${Number(booking.totalPrice || 0).toFixed(2)}
+                      ${Number(booking.totalPrice || 0).toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                     </td>
                   </tr>
                 ))

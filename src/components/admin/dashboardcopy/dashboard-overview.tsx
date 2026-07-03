@@ -7,21 +7,38 @@ import {
   Bar,
   BarChart,
   CartesianGrid,
+  Line,
+  LineChart,
   ResponsiveContainer,
   Tooltip,
   XAxis,
   YAxis,
 } from "recharts";
-import { TrendingDown, TrendingUp, Users, IndianRupee, CalendarCheck2, Ban, Clock3, BriefcaseBusiness } from "lucide-react";
+import {
+  TrendingDown,
+  TrendingUp,
+  Users,
+  IndianRupee,
+  CalendarCheck2,
+  Ban,
+  Clock3,
+  BriefcaseBusiness,
+} from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { RecentBookingsTable } from "@/components/admin/dashboard/recent-bookings-table";
+import { RecentBookingsTable } from "@/components/admin/dashboardcopy/recent-bookings-table";
 
 type Props = {
   bookings: any[];
   customers: any[];
   servicesCount: number;
 };
+
+// ---- Yellow theme tokens -------------------------------------------------
+const YELLOW = "#F5B300"; // primary accent
+const YELLOW_SOFT = "#FBD34D"; // lighter accent
+const YELLOW_DEEP = "#B8860B"; // darker accent for contrast
+const AMBER_MUTED = "#8A6A00";
 
 const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
@@ -174,32 +191,26 @@ export function DashboardOverview({ bookings, customers, servicesCount }: Props)
         revenue: {
           value: currentMonth.revenue,
           change: percentChange(currentMonth.revenue, previousMonth.revenue),
-          description: "Trending this month",
         },
         customers: {
           value: currentMonth.customers,
           change: percentChange(currentMonth.customers, previousMonth.customers),
-          description: "Customer growth this month",
         },
         completed: {
           value: currentMonth.completed,
           change: percentChange(currentMonth.completed, previousMonth.completed),
-          description: "Completed bookings this month",
         },
         cancelled: {
           value: currentMonth.cancelled,
           change: percentChange(currentMonth.cancelled, previousMonth.cancelled),
-          description: "Cancelled bookings this month",
         },
         pending: {
           value: pendingNow,
           change: percentChange(currentMonth.bookings, previousMonth.bookings),
-          description: "Pending bookings needing attention",
         },
         expectedRevenue: {
           value: expectedNextMonthRevenue,
           change: percentChange(expectedNextMonthRevenue, currentMonth.revenue),
-          description: "Expected revenue next month",
         },
       },
     };
@@ -209,7 +220,7 @@ export function DashboardOverview({ bookings, customers, servicesCount }: Props)
     <div className="space-y-6">
       <div className="flex flex-col gap-4 rounded-2xl border bg-card p-5 lg:flex-row lg:items-center lg:justify-between">
         <div>
-          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+          <p className="text-xs uppercase tracking-[0.2em]" style={{ color: AMBER_MUTED }}>
             Dashboard
           </p>
           <h1 className="mt-2 text-2xl font-semibold tracking-tight">
@@ -224,12 +235,15 @@ export function DashboardOverview({ bookings, customers, servicesCount }: Props)
           <Button
             variant={range === "6m" ? "default" : "outline"}
             onClick={() => setRange("6m")}
+            className={range === "6m" ? "" : ""}
+            style={range === "6m" ? { backgroundColor: YELLOW, color: "#1a1400", borderColor: YELLOW } : {}}
           >
             Last 6 months
           </Button>
           <Button
             variant={range === "12m" ? "default" : "outline"}
             onClick={() => setRange("12m")}
+            style={range === "12m" ? { backgroundColor: YELLOW, color: "#1a1400", borderColor: YELLOW } : {}}
           >
             Last 12 months
           </Button>
@@ -288,7 +302,7 @@ export function DashboardOverview({ bookings, customers, servicesCount }: Props)
       </div>
 
       <div className="grid gap-4 xl:grid-cols-[1.6fr_1fr]">
-        <Card className="rounded-2xl border">
+        <Card className="rounded-2xl border overflow-hidden">
           <CardHeader>
             <CardTitle>Revenue trend</CardTitle>
             <CardDescription>
@@ -297,18 +311,34 @@ export function DashboardOverview({ bookings, customers, servicesCount }: Props)
           </CardHeader>
           <CardContent className="h-[320px]">
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={metrics.months}>
-                <CartesianGrid vertical={false} strokeDasharray="3 3" />
+              <AreaChart data={metrics.months}>
+                <defs>
+                  <linearGradient id="revenueFill" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor={YELLOW} stopOpacity={0.55} />
+                    <stop offset="100%" stopColor={YELLOW} stopOpacity={0.03} />
+                  </linearGradient>
+                </defs>
+                <CartesianGrid vertical={false} strokeDasharray="3 3" opacity={0.25} />
                 <XAxis dataKey="label" tickLine={false} axisLine={false} fontSize={12} />
                 <YAxis tickLine={false} axisLine={false} fontSize={12} />
-                <Tooltip formatter={(value: any) => formatCurrency(Number(value || 0))} />
-                <Bar dataKey="revenue" fill="hsl(var(--primary))" radius={[8, 8, 0, 0]} />
-              </BarChart>
+                <Tooltip
+                  formatter={(value: any) => formatCurrency(Number(value || 0))}
+                  contentStyle={{ borderRadius: 12, borderColor: YELLOW_SOFT }}
+                />
+                <Area
+                  type="monotone"
+                  dataKey="revenue"
+                  stroke={YELLOW_DEEP}
+                  strokeWidth={2.5}
+                  fill="url(#revenueFill)"
+                  activeDot={{ r: 5, fill: YELLOW, stroke: "#fff", strokeWidth: 2 }}
+                />
+              </AreaChart>
             </ResponsiveContainer>
           </CardContent>
         </Card>
 
-        <Card className="rounded-2xl border">
+        <Card className="rounded-2xl border overflow-hidden">
           <CardHeader>
             <CardTitle>Customer growth</CardTitle>
             <CardDescription>
@@ -320,20 +350,21 @@ export function DashboardOverview({ bookings, customers, servicesCount }: Props)
               <AreaChart data={metrics.months}>
                 <defs>
                   <linearGradient id="customerFill" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity={0.35} />
-                    <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity={0.04} />
+                    <stop offset="0%" stopColor={YELLOW_SOFT} stopOpacity={0.5} />
+                    <stop offset="100%" stopColor={YELLOW_SOFT} stopOpacity={0.03} />
                   </linearGradient>
                 </defs>
-                <CartesianGrid vertical={false} strokeDasharray="3 3" />
+                <CartesianGrid vertical={false} strokeDasharray="3 3" opacity={0.25} />
                 <XAxis dataKey="label" tickLine={false} axisLine={false} fontSize={12} />
                 <YAxis tickLine={false} axisLine={false} fontSize={12} />
-                <Tooltip />
+                <Tooltip contentStyle={{ borderRadius: 12, borderColor: YELLOW_SOFT }} />
                 <Area
                   type="monotone"
                   dataKey="customers"
-                  stroke="hsl(var(--primary))"
+                  stroke={YELLOW}
                   fill="url(#customerFill)"
-                  strokeWidth={2}
+                  strokeWidth={2.5}
+                  activeDot={{ r: 5, fill: YELLOW, stroke: "#fff", strokeWidth: 2 }}
                 />
               </AreaChart>
             </ResponsiveContainer>
@@ -347,7 +378,8 @@ export function DashboardOverview({ bookings, customers, servicesCount }: Props)
           description="Total monthly bookings"
           data={metrics.months}
           dataKey="bookings"
-          color="hsl(var(--primary))"
+          variant="line"
+          color={YELLOW}
         />
 
         <MiniTrendCard
@@ -355,7 +387,8 @@ export function DashboardOverview({ bookings, customers, servicesCount }: Props)
           description="Completed bookings by month"
           data={metrics.months}
           dataKey="completed"
-          color="#16a34a"
+          variant="area"
+          color={YELLOW_DEEP}
         />
 
         <MiniTrendCard
@@ -363,6 +396,7 @@ export function DashboardOverview({ bookings, customers, servicesCount }: Props)
           description="Cancelled bookings by month"
           data={metrics.months}
           dataKey="cancelled"
+          variant="bar"
           color="#dc2626"
         />
       </div>
@@ -408,7 +442,14 @@ function MetricCard({
   const TrendIcon = trend.icon;
 
   return (
-    <Card className={`rounded-2xl border ${highlight ? "border-primary/30 bg-primary/5" : ""}`}>
+    <Card
+      className="rounded-2xl border"
+      style={
+        highlight
+          ? { borderColor: "rgba(245,179,0,0.35)", backgroundColor: "rgba(245,179,0,0.06)" }
+          : {}
+      }
+    >
       <CardHeader className="flex flex-row items-start justify-between space-y-0 pb-2">
         <div>
           <CardDescription>{title}</CardDescription>
@@ -417,7 +458,14 @@ function MetricCard({
           </CardTitle>
         </div>
 
-        <div className={`rounded-xl p-2 ${highlight ? "bg-primary text-primary-foreground" : "bg-muted"}`}>
+        <div
+          className="rounded-xl p-2"
+          style={
+            highlight
+              ? { backgroundColor: YELLOW, color: "#1a1400" }
+              : { backgroundColor: "rgba(245,179,0,0.12)", color: YELLOW_DEEP }
+          }
+        >
           <Icon className="h-5 w-5" />
         </div>
       </CardHeader>
@@ -439,15 +487,17 @@ function MiniTrendCard({
   data,
   dataKey,
   color,
+  variant = "bar",
 }: {
   title: string;
   description: string;
   data: any[];
   dataKey: string;
   color: string;
+  variant?: "bar" | "line" | "area";
 }) {
   return (
-    <Card className="rounded-2xl border">
+    <Card className="rounded-2xl border overflow-hidden">
       <CardHeader>
         <CardTitle>{title}</CardTitle>
         <CardDescription>{description}</CardDescription>
@@ -455,13 +505,50 @@ function MiniTrendCard({
 
       <CardContent className="h-[220px]">
         <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={data}>
-            <CartesianGrid vertical={false} strokeDasharray="3 3" />
-            <XAxis dataKey="label" tickLine={false} axisLine={false} fontSize={12} />
-            <YAxis tickLine={false} axisLine={false} fontSize={12} />
-            <Tooltip />
-            <Bar dataKey={dataKey} fill={color} radius={[8, 8, 0, 0]} />
-          </BarChart>
+          {variant === "line" ? (
+            <LineChart data={data}>
+              <CartesianGrid vertical={false} strokeDasharray="3 3" opacity={0.25} />
+              <XAxis dataKey="label" tickLine={false} axisLine={false} fontSize={12} />
+              <YAxis tickLine={false} axisLine={false} fontSize={12} />
+              <Tooltip contentStyle={{ borderRadius: 12 }} />
+              <Line
+                type="monotone"
+                dataKey={dataKey}
+                stroke={color}
+                strokeWidth={2.5}
+                dot={{ r: 3, fill: color }}
+                activeDot={{ r: 5, fill: color, stroke: "#fff", strokeWidth: 2 }}
+              />
+            </LineChart>
+          ) : variant === "area" ? (
+            <AreaChart data={data}>
+              <defs>
+                <linearGradient id={`miniFill-${dataKey}`} x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor={color} stopOpacity={0.5} />
+                  <stop offset="100%" stopColor={color} stopOpacity={0.03} />
+                </linearGradient>
+              </defs>
+              <CartesianGrid vertical={false} strokeDasharray="3 3" opacity={0.25} />
+              <XAxis dataKey="label" tickLine={false} axisLine={false} fontSize={12} />
+              <YAxis tickLine={false} axisLine={false} fontSize={12} />
+              <Tooltip contentStyle={{ borderRadius: 12 }} />
+              <Area
+                type="monotone"
+                dataKey={dataKey}
+                stroke={color}
+                fill={`url(#miniFill-${dataKey})`}
+                strokeWidth={2.5}
+              />
+            </AreaChart>
+          ) : (
+            <BarChart data={data}>
+              <CartesianGrid vertical={false} strokeDasharray="3 3" opacity={0.25} />
+              <XAxis dataKey="label" tickLine={false} axisLine={false} fontSize={12} />
+              <YAxis tickLine={false} axisLine={false} fontSize={12} />
+              <Tooltip contentStyle={{ borderRadius: 12 }} />
+              <Bar dataKey={dataKey} fill={color} radius={[8, 8, 0, 0]} />
+            </BarChart>
+          )}
         </ResponsiveContainer>
       </CardContent>
     </Card>

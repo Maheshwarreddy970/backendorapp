@@ -1,15 +1,22 @@
-import { BookingsTable } from "@/components/admin/bookingscopy/bookings-table";
-import { generateBookingsDummyData } from "@/store/bookings-dummy-data";
-
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
+import { db } from "@/lib/firebase";
+import { BookingsTable } from "@/components/admin/bookings/bookings-table";
 
 export const dynamic = "force-dynamic";
 
-export default function AdminBookingsPage() {
-  const { bookings } = generateBookingsDummyData(80);
+export default async function AdminBookingsPage() {
+  const bookingsSnap = await getDocs(
+    query(collection(db, "bookings"), orderBy("createdAt", "desc"))
+  );
+
+  const bookings = bookingsSnap.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  }));
 
   return (
     <div className="space-y-6">
-      <div className="rounded-2xl border border-yellow-200/60 bg-gradient-to-br from-yellow-50/70 to-background p-5">
+      <div className="border-b pb-4">
         <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
           Bookings
         </p>

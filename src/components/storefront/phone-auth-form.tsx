@@ -92,7 +92,7 @@ function PhoneAuthFormInner() {
                 <Input
                   id="signin-phone"
                   name="phone"
-                  placeholder="+91 9705768802"
+                  placeholder="+1 (555) 555-5555"
                   required
                 />
               </div>
@@ -128,7 +128,7 @@ function PhoneAuthFormInner() {
                 <Input
                   id="signup-phone"
                   name="phone"
-                  placeholder="+91 9705768802"
+                  placeholder="+1 (555) 555-5555"
                   required
                 />
               </div>

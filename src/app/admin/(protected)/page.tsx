@@ -1,31 +1,19 @@
-import { collection, getDocs, getCountFromServer } from "firebase/firestore";
-import { db } from "@/lib/firebase";
-import { DashboardOverview } from "@/components/admin/dashboard/dashboard-overview";
-
+import { DashboardOverview } from "@/components/admin/dashboardcopy/dashboard-overview";
+import { generateDummyData } from "@/store/dummy-data";
+ 
+// Demo page — forget the database. Everything below is generated locally
+// so the dashboard always renders full of realistic-looking numbers.
 export const dynamic = "force-dynamic";
-
-export default async function AdminDashboardPage() {
-  const [bookingsSnap, customersSnap, servicesCountSnap] = await Promise.all([
-    getDocs(collection(db, "bookings")),
-    getDocs(collection(db, "customers")),
-    getCountFromServer(collection(db, "services")),
-  ]);
-
-  const bookings = bookingsSnap.docs.map((doc) => ({
-    id: doc.id,
-    ...doc.data(),
-  }));
-
-  const customers = customersSnap.docs.map((doc) => ({
-    id: doc.id,
-    ...doc.data(),
-  }));
-
+ 
+export default function AdminDashboardDemoPage() {
+  const { bookings, customers, servicesCount } = generateDummyData(12);
+ 
   return (
     <DashboardOverview
       bookings={bookings}
       customers={customers}
-      servicesCount={servicesCountSnap.data().count}
+      servicesCount={servicesCount}
     />
   );
 }
+ 

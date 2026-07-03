@@ -34,11 +34,11 @@ const navItems = [
   { title: "Dashboard", href: "/admin", icon: LayoutDashboard },
   { title: "Bookings", href: "/admin/bookings", icon: CalendarDays },
   { title: "Calendar", href: "/admin/calendar", icon: Calendar },
-  { title: "Invitations", href: "/admin/invitations", icon: Mail },
   { title: "Services", href: "/admin/services", icon: Briefcase },
   { title: "Availability", href: "/admin/availability", icon: Clock },
-  { title: "Analytics", href: "/admin/analytics", icon: TrendingUp },
   { title: "Coupons", href: "/admin/coupons", icon: Ticket },
+  { title: "Analytics", href: "/admin/analytics", icon: TrendingUp },
+  { title: "Invitations", href: "/admin/invitations", icon: Mail },
   { title: "Settings", href: "/admin/settings", icon: Settings },
 ];
 
