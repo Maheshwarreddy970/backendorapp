@@ -18,7 +18,7 @@ export default function Hero() {
     return (
         <section
             ref={ref}
-            className="relative overflow-hidden min-h-screen flex flex-col"
+            className="relative min-h-[90vh] md:min-h-screen flex flex-col overflow-hidden"
         >
             {/* Background Sky */}
             <div className="absolute inset-0 -z-10">
@@ -100,7 +100,7 @@ export default function Hero() {
                             )}>
                                 <a 
                                     href="/services" 
-                                    className="hidden md:flex items-center gap-2.5 bg-[#FFC357] text-sm font-medium pl-5 pr-2 py-2 rounded-full cursor-pointer border-0 hover:scale-105 active:scale-95 transition-transform duration-200"
+                                    className="flex mx-auto md:mx-0 items-center gap-2.5 bg-[#FFC357] text-sm font-medium pl-5 pr-2 py-2 rounded-full cursor-pointer border-0 hover:scale-105 active:scale-95 transition-transform duration-200"
                                 >
                                     Schedule a visit
                                     <span className="w-7 h-7 rounded-full bg-white flex items-center justify-center">
