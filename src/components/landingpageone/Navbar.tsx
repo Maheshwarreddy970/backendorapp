@@ -36,7 +36,7 @@ export default function Navbar({ data = defaultNavbarData }) {
       {/* DESKTOP TOP NAVIGATION */}
       <nav className="hidden md:block fixed top-0 left-0 w-full z-50">
         <div className={`px-6 md:px-12 lg:px-24 xl:px-40 py-3 flex items-center justify-between relative transition-all duration-300 ${
-            isScrolled ? "bg-black/10 backdrop-blur-3xl" : "bg-transparent backdrop-blur-none"
+            isScrolled ? "bg-white/10 backdrop-blur-3xl" : "bg-transparent backdrop-blur-none"
           }`}
         >
           {/* Scalable Logo Wrapper */}
