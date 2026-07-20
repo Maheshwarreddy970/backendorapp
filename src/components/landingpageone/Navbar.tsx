@@ -27,7 +27,7 @@ export default function Navbar({ data = defaultNavbarData }) {
   const isScrolled = !inView;
 
   const logo = data.logo || defaultNavbarData.logo;
-  const isBlackLogo = logo.status === "approved has black";
+  const isBlackLogo = logo.status === "approved_as_black";
 
   return (
     <>

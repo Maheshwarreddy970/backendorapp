@@ -40,7 +40,7 @@ export default function Footer({ data }:any) {
     const emailHref = typeof rawEmail === 'string' ? `mailto:${rawEmail}` : rawEmail?.href || "#";
 
     const copyrightText = sourceData?.copyright || "Copyright © 2026. All rights reserved.";
-  const isBlackLogo = sourceData?.logo?.status === "approved has black";
+  const isBlackLogo = sourceData?.logo?.status === "approved_as_black";
     // Safely extract socials
     const socials = sourceData?.socials || {};
 
