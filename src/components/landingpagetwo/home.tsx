@@ -84,7 +84,7 @@ export default function Hero({ data = defaultHeroData }: { data?: HeroData }) {
                     <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-0">
 
                         {/* Left Side Content */}
-                        <div className="w-full z-30 max-w-md text-center lg:text-left order-2 lg:order-1">
+                        <div className="w-full z-30 max-w-xl text-center lg:text-left order-2 lg:order-1">
                             <div className="flex flex-col gap-2">
                                 {/* [PHASE 2A] Heading Reveal */}
                                 <h1 className={cn(

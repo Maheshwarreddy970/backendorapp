@@ -68,12 +68,30 @@ export default function ProcessSection({ data = defaultProcessData }) {
                                         {/* Even rows slide right, odd rows slide left */}
                                         <Reveal animation={isEven ? "right" : "left"} className="w-full max-w-[474px]">
                                             <div className="relative w-full aspect-[474/284] rounded-2xl overflow-hidden shadow-sm">
-                                                <img
-                                                    src={step.image}
+                                                {index === 0 && <img
+                                                    src="/1.avif"
                                                     alt={step.title}
                                                     className="object-cover w-full h-full"
                                                     sizes="(max-width: 1024px) 100vw, 50vw"
                                                 />
+                                                }
+                                                {
+                                                    index === 1 && <img
+                                                    src="/2.jpg"
+                                                    alt={step.title}
+                                                    className="object-cover w-full h-full"
+                                                    sizes="(max-width: 1024px) 100vw, 50vw"
+                                                />
+                                                }
+                                                {
+                                                    index === 2 && <img
+                                                    src="/3.jpg"
+                                                    alt={step.title}
+                                                    className="object-cover w-full h-full"
+                                                    sizes="(max-width: 1024px) 100vw, 50vw"
+                                                />
+                                                }
+                                             
                                             </div>
                                         </Reveal>
                                     </div>

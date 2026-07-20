@@ -1,24 +1,13 @@
-import PawIcon from "@/icons/icon1";
 import { Mail, Map, Phone } from "lucide-react";
 import { FaFacebookF, FaInstagram } from "react-icons/fa6";
 
+const socials = [
+    { icon: FaInstagram, href: "#", label: "Instagram" },
+    { icon: FaFacebookF, href: "#", label: "Facebook" }
+];
 const defaultFooterData = {
     tagline: "Trusted pet care for a\nhealthier, happier life.",
-    socials: [
-        { icon: FaInstagram, href: "#", label: "Instagram" },
-        { icon: FaFacebookF, href: "#", label: "Facebook" }
-    ],
-    navigation: {
-        title: "Navigation",
-        links: [
-            { label: "About Us", href: "#" },
-            { label: "Why Us", href: "#" },
-            { label: "Services", href: "#" },
-            { label: "How It Works", href: "#" },
-            { label: "Reviews", href: "#" },
-            { label: "Error 404", href: "#" }
-        ]
-    },
+   
     contact: {
         title: "Contact Us",
         address: "Amsterdam Netherlands",
@@ -28,7 +17,7 @@ const defaultFooterData = {
     copyright: "©2026 Pawsy. All rights reserved."
 };
 
-export default function Footer({ data = defaultFooterData }) {
+export default function Footer({ data = defaultFooterData ,logo}:any) {
     return (
         <footer className="bg-gradient-to-b from-white to-[#E7EBFC] px-4 py-10">
             <div
@@ -42,7 +31,7 @@ export default function Footer({ data = defaultFooterData }) {
                         {/* Left Side */}
                         <div className="space-y-10">
                             <div>
-                                <PawIcon className="h-10 w-10 text-black" />
+                                <img src={logo.src} alt={logo.alt} className="h-10 w-10 text-black" />
                                 <p className="mt-3 max-w-xs whitespace-pre-line text-base text-zinc-900">
                                     {data.tagline}
                                 </p>
@@ -50,12 +39,12 @@ export default function Footer({ data = defaultFooterData }) {
 
                             {/* Social Icons */}
                             <div className="flex gap-4">
-                                {data.socials.map((social, index) => {
+                                {socials.map((social, index) => {
                                     const IconComponent = social.icon;
                                     return (
-                                        <a 
-                                            key={index} 
-                                            href={social.href} 
+                                        <a
+                                            key={index}
+                                            href={social.href}
                                             aria-label={social.label}
                                             className="text-zinc-900 hover:opacity-80 transition-opacity"
                                         >
@@ -71,11 +60,18 @@ export default function Footer({ data = defaultFooterData }) {
                             {/* Navigation */}
                             <div>
                                 <h3 className="mb-4 text-lg font-medium text-zinc-600">
-                                    {data.navigation.title}
+                                    Navigation
                                 </h3>
 
                                 <ul className="space-y-3 text-[17px] text-zinc-900">
-                                    {data.navigation.links.map((link, index) => (
+                                    {[
+                                        { label: "About Us", href: "#" },
+                                        { label: "Why Us", href: "#" },
+                                        { label: "Services", href: "#" },
+                                        { label: "How It Works", href: "#" },
+                                        { label: "Reviews", href: "#" },
+                                        { label: "Error 404", href: "#" }
+                                    ].map((link, index) => (
                                         <li key={index}>
                                             <a href={link.href} className="hover:underline">
                                                 {link.label}

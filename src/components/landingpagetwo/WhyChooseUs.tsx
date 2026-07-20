@@ -12,32 +12,32 @@ function Counter({ value, trigger }: { value: string; trigger: boolean }) {
     const [count, setCount] = useState(0);
     const numericTarget = parseInt(value.replace(/,/g, '').replace(/\+/g, ''), 10);
     const hasPlus = value.includes('+');
-    
+
     useEffect(() => {
         if (!trigger) return;
-        
+
         let frame = 0;
         const duration = 2000; // 2 seconds animation duration
         const totalFrames = 120; // ~60fps target over 2s
         const frameDuration = duration / totalFrames;
-        
+
         const counterInterval = setInterval(() => {
             frame++;
             // Smooth ease-out progress function
             const progress = frame / totalFrames;
-            const easeOutProgress = progress * (2 - progress); 
-            
+            const easeOutProgress = progress * (2 - progress);
+
             setCount(Math.round(numericTarget * easeOutProgress));
-            
+
             if (frame === totalFrames) {
                 clearInterval(counterInterval);
                 setCount(numericTarget);
             }
         }, frameDuration);
-        
+
         return () => clearInterval(counterInterval);
     }, [trigger, numericTarget]);
-    
+
     return (
         <>
             {count.toLocaleString()}
@@ -45,13 +45,14 @@ function Counter({ value, trigger }: { value: string; trigger: boolean }) {
         </>
     );
 }
+const defaultStatsData = [
+  { value: "2,500+", label: "Pets Treated with Care", delay: "delay-0" },
+  { value: "850+", label: "Free Health Checkups", delay: "delay-100" },
+  { value: "1,800+", label: "Grooming Appointments", delay: "delay-200" },
+  { value: "500+", label: "Happy Pet Families", delay: "delay-300" },
+];
 const defaultWhyChooseUsData = {
-    stats: [
-        { value: "12,500+", label: "Pets Treated with Care", delay: "delay-0" },
-        { value: "3,200+", label: "Free Health Checkups", delay: "delay-100" },
-        { value: "8,400+", label: "Grooming Appointments", delay: "delay-200" },
-        { value: "2,000+", label: "Pre Sales Service", delay: "delay-300" },
-    ],
+
     tagline: "Why choose us",
     heading: <>Putting your pet’s comfort and wellness first</>,
     benefits: [
@@ -79,7 +80,7 @@ export default function WhyChooseUs({ data = defaultWhyChooseUsData }) {
 
                 <div className="relative mx-auto max-w-7xl py-8 px-6 z-10">
                     <div className="grid grid-cols-2 gap-10 lg:grid-cols-4">
-                        {data.stats.map((item) => (
+                        {defaultStatsData.map((item) => (
                             <div
                                 key={item.label}
                                 className={cn(

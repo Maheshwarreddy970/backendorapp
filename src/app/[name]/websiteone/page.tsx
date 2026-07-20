@@ -15,20 +15,20 @@ import InsightsSection from "@/components/landingpageone/InsightsSection";
 import CTASection from "@/components/landingpageone/CTASection";
 import Footer from "@/components/landingpageone/footer";
 
-export default async function WebsiteOne({ 
-  params 
-}: { 
-  params: Promise<{ slug: string }> 
+export default async function WebsiteOne({
+  params
+}: {
+  params: Promise<{ name: string }>
 }) {
-  const { slug } = await params;
-  const dbData = await getWebsiteData(slug);
+  const { name } = await params;
+  const dbData = await getWebsiteData(name);
 
-  if (!dbData || !dbData.websiteOneData) {
+  if (!dbData || !dbData.websiteTwoData) {
     notFound();
   }
 
-  const data = dbData.websiteOneData;
-
+  const data = dbData.websiteTwoData;
+  console.log(data.footer);
   return (
     <>
       {/* Notice Navbar and Footer are brought in here directly */}
@@ -39,11 +39,12 @@ export default async function WebsiteOne({
       <ServicesSection data={data.services} />
       <ProcessSection data={data.process} />
       <ComparisonSection data={data.comparison} />
-      <GallerySection data={data.gallery} />
-      <ReviewsSection data={data.reviews} />
+      <GallerySection></GallerySection>
+ <ReviewsSection  data={data.reviews} />
       <InsightsSection data={data.insights} />
-      <CTASection data={data.cta} />
+      <CTASection />
       <Footer data={data.footer} />
+
     </>
   );
 }

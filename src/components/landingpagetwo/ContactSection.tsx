@@ -3,25 +3,23 @@
 import { useState, ChangeEvent, FormEvent } from "react";
 import { useInView } from "react-intersection-observer";
 import { cn } from "@/lib/utils";
-import PawIcon from "@/icons/icon1";
 import { PawPrintIcon } from "lucide-react";
 
-// Define interface for full type safety
+// Define interface for full type safety with optional nested properties
 interface ContactData {
-  heading: string;
-  subText: string;
-  sideImage: { src: string; alt: string; badgeText: string};
-  formHeading: string;
-  services: string[];
-  ctaLabel: string;
+  heading?: string;
+  subText?: string;
+  sideImage?: { src?: string; alt?: string; badgeText?: string };
+  formHeading?: string;
+  services?: string[];
+  ctaLabel?: string;
 }
 
-const defaultContactData: ContactData = {
+const defaultContactData = {
   heading: "Get in touch with our pet care experts",
   subText: "Exceptional care and wellness services designed to keep pets thriving.",
   sideImage: {
-    src: "DhxpPNyvDS30ZM9WEMahhQ1PY.avif",
-    alt: "Pet care context",
+   
     badgeText: "Your pet's comfort, health, and happiness.",
   },
   formHeading: "Send us a message",
@@ -29,7 +27,20 @@ const defaultContactData: ContactData = {
   ctaLabel: "Submit"
 };
 
-export default function ContactSection({ data = defaultContactData }: { data?: ContactData }) {
+export default function ContactSection({ data }: { data?: ContactData }) {
+  // Safely merge incoming data with fallback defaults
+  const mergedData = {
+    heading: data?.heading ?? defaultContactData.heading,
+    subText: data?.subText ?? defaultContactData.subText,
+    sideImage: {
+   
+      badgeText: data?.sideImage?.badgeText ?? defaultContactData.sideImage.badgeText,
+    },
+    formHeading: data?.formHeading ?? defaultContactData.formHeading,
+    services: data?.services ?? defaultContactData.services,
+    ctaLabel: data?.ctaLabel ?? defaultContactData.ctaLabel,
+  };
+
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.15,
@@ -53,7 +64,6 @@ export default function ContactSection({ data = defaultContactData }: { data?: C
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic here
     console.log("Submitted Data:", form);
   };
 
@@ -68,7 +78,7 @@ export default function ContactSection({ data = defaultContactData }: { data?: C
               "max-w-lg text-4xl md:text-5xl font-semibold text-zinc-800 leading-tight transition-all duration-700 ease-out transform",
               inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             )}>
-              {data.heading}
+              {mergedData.heading}
             </h2>
 
             <div className={cn(
@@ -78,17 +88,16 @@ export default function ContactSection({ data = defaultContactData }: { data?: C
               <div
                 className="relative h-[500px] bg-cover bg-center"
                 style={{
-                  backgroundImage: `url('${data.sideImage.src}')`,
+                  backgroundImage: `url(/DhxpPNyvDS30ZM9WEMahhQ1PY.avif)`,
                 }}
               >
                 <div className="absolute bottom-4 left-4 right-4">
                   <div className="flex items-center justify-between rounded-full bg-white p-3 shadow-lg">
                     <p className="max-w-xs text-sm text-zinc-500">
-                      {data.sideImage.badgeText}
+                      {mergedData.sideImage.badgeText}
                     </p>
 
-                   <PawPrintIcon className="h-10 w-10  fill-black  bg-[#FFC357] p-1.5 rounded-full " />
-
+                    <PawPrintIcon className="h-10 w-10 fill-black bg-[#FFC357] p-1.5 rounded-full" />
                   </div>
                 </div>
               </div>
@@ -98,17 +107,17 @@ export default function ContactSection({ data = defaultContactData }: { data?: C
               "text-zinc-600 transition-all duration-700 delay-300 ease-out transform",
               inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             )}>
-              {data.subText}
+              {mergedData.subText}
             </p>
           </div>
 
-          {/* Right Side - Interactive Card Reveal */}
+          {/* Right Side - Interactive Form */}
           <div className={cn(
             "rounded-[32px] bg-[#FFEEF5] p-8 md:p-10 transition-all duration-1000 delay-200 ease-out transform",
             inView ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-12 scale-[0.98]"
           )}>
             <h3 className="mb-8 text-3xl font-semibold text-zinc-800">
-              {data.formHeading}
+              {mergedData.formHeading}
             </h3>
 
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -156,7 +165,7 @@ export default function ContactSection({ data = defaultContactData }: { data?: C
                     className="w-full rounded-lg border border-zinc-300 px-4 py-3 outline-none focus:border-yellow-500 bg-white"
                   >
                     <option value="">Select a service</option>
-                    {data.services.map((service, index) => (
+                    {mergedData.services.map((service, index) => (
                       <option key={index} value={service}>
                         {service}
                       </option>
@@ -210,7 +219,7 @@ export default function ContactSection({ data = defaultContactData }: { data?: C
                 type="submit"
                 className="w-full rounded-full bg-[#FFC357] py-4 font-medium text-zinc-900 transition hover:opacity-90 transform active:scale-[0.99] duration-200"
               >
-                {data.ctaLabel}
+                {mergedData.ctaLabel}
               </button>
             </form>
           </div>

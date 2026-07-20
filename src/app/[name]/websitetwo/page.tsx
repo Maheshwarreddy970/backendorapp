@@ -19,17 +19,16 @@ import Footer from "@/components/landingpagetwo/Footer";
 export default async function WebsiteTwo({ 
   params 
 }: { 
-  params: Promise<{ slug: string }> 
+  params: Promise<{ name: string }> 
 }) {
-  const { slug } = await params;
-  const dbData = await getWebsiteData(slug);
-
-  if (!dbData || !dbData.websiteTwoData) {
+  const { name } = await params;
+  const dbData = await getWebsiteData(name);
+  if (!dbData || !dbData.websiteOneData) {
     notFound();
   }
 
-  const data = dbData.websiteTwoData;
-
+  const data = dbData.websiteOneData;
+console.log(data.contact);
   return (
     <main>
       {/* Notice Navbar and Footer are brought in here directly */}
@@ -37,15 +36,15 @@ export default async function WebsiteTwo({
       <HeroSection data={data.hero} />
       <Introduction data={data.introduction} />
       <WhyChooseUs data={data.whyChooseUs} />
-      <WhyUsSection/>
-      <ServicesSection data={data.services} />
+      <WhyUsSection />
+       <ServicesSection data={data.services} />
       <AboutSection data={data.about} />
       <HowItWorksSection data={data.howItWorks} />
       <TestimonialsSection data={data.testimonials} />
-      <GallerySection data={data.gallery} />
+      <GallerySection />
       <FAQSection data={data.faq} />
       <ContactSection data={data.contact} />
-      <Footer data={data.footer} />
+      <Footer data={data.footer} logo={data.navbar.logo} />
     </main>
   );
 }

@@ -9,22 +9,22 @@ const defaultAboutData = {
   label: "About us",
   heading: <>Trusted care that treats your <br /> pet like one of our own</>,
   description: "From checkups to treatments, we provide attentive, compassionate care that supports your pet's well-being every step of the way.",
-  cards: [
-    {
-      src: "/OsueP7KJmSKkVV7OAeeUDKT3Feo.avif",
-      alt: "Pet owner smiling"
-    },
-    {
-      src: "/OHqEcD2usoRAhLXbVxuDv9nN4.avif",
-      alt: "Dog and owner"
-    },
-    {
-      src: "/YAZnBkBG3wKGjlW980PFrfWoaZ0.avif",
-      alt: "Dog hiking"
-    }
-  ]
 };
 
+const cards = [
+  {
+    src: "/OsueP7KJmSKkVV7OAeeUDKT3Feo.avif",
+    alt: "Pet owner smiling"
+  },
+  {
+    src: "/OHqEcD2usoRAhLXbVxuDv9nN4.avif",
+    alt: "Dog and owner"
+  },
+  {
+    src: "/YAZnBkBG3wKGjlW980PFrfWoaZ0.avif",
+    alt: "Dog hiking"
+  }
+]
 export default function AboutSection({ data = defaultAboutData }) {
   // Observer for the text header area
   const { ref: headerRef, inView: headerInView } = useInView({
@@ -74,14 +74,14 @@ export default function AboutSection({ data = defaultAboutData }) {
           <div className="-translate-y-20 flex flex-col items-center justify-center gap-8 md:flex-row">
             
             {/* Left Card */}
-            {data.cards?.[0] && (
+            {cards?.[0] && (
               <div className={cn(
                 "relative h-[320px] w-[240px] overflow-hidden rounded-3xl transition-all duration-1000 ease-out transform",
                 cardsInView ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-95"
               )}>
                 <Image
-                  src={data.cards[0].src}
-                  alt={data.cards[0].alt}
+                  src={cards[0].src}
+                  alt={cards[0].alt}
                   fill
                   className="object-cover transition duration-500 hover:scale-105"
                 />
@@ -89,14 +89,14 @@ export default function AboutSection({ data = defaultAboutData }) {
             )}
 
             {/* Center Card */}
-            {data.cards?.[1] && (
+            {cards?.[1] && (
               <div className={cn(
                 "relative h-[460px] w-[340px] overflow-hidden rounded-3xl shadow-xl transition-all duration-1000 delay-150 ease-out transform",
                 cardsInView ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-12 scale-95"
               )}>
                 <Image
-                  src={data.cards[1].src}
-                  alt={data.cards[1].alt}
+                  src={cards[1].src}
+                  alt={cards[1].alt}
                   fill
                   className="object-cover transition duration-500 hover:scale-105"
                 />
@@ -104,14 +104,14 @@ export default function AboutSection({ data = defaultAboutData }) {
             )}
 
             {/* Right Card */}
-            {data.cards?.[2] && (
+            {cards?.[2] && (
               <div className={cn(
                 "relative h-[320px] w-[240px] overflow-hidden rounded-3xl transition-all duration-1000 delay-300 ease-out transform",
                 cardsInView ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-95"
               )}>
                 <Image
-                  src={data.cards[2].src}
-                  alt={data.cards[2].alt}
+                  src={cards[2].src}
+                  alt={cards[2].alt}
                   fill
                   className="object-cover transition duration-500 hover:scale-105"
                 />
