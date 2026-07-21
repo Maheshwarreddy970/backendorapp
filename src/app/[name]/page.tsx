@@ -14,6 +14,7 @@ import {
   LayoutGrid,
 } from "lucide-react";
 import VideoPlayer from "@/components/video-player"; // Your existing video component
+import Linkedinicon from "@/icons/linkedinicon";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -168,9 +169,12 @@ export default async function ClientPortalPage({
             <span className="inline-flex items-center gap-1.5 rounded-md bg-[#E7F3EE] px-2.5 py-1 font-medium text-[#0F7B6C]">
               Local service business
             </span>
+            <Link href="https://www.linkedin.com/in/maheshwarr-reddy-713927258/" target="_blank" rel="noopener noreferrer" className="flex gap-1 hover:scale-105 ease-in-out duration-300 hover:translate-y-0.5 ">
+            <Linkedinicon className="size-7"></Linkedinicon>
             <span className="inline-flex items-center gap-1.5 rounded-md bg-[#F1EFEE] px-2.5 py-1 font-medium text-[#787774]">
               Prepared by Maheshwar Reddy
             </span>
+            </Link>
           </div>
         </div>
 
