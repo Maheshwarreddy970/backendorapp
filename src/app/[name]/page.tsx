@@ -209,9 +209,11 @@ export default async function ClientPortalPage({
             <h3 className="text-xs font-semibold uppercase tracking-wider text-[#9B9A97]">
               Your live previews
             </h3>
+           
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+<div className="rounded-lg border border-[#EAEAE9] bg-[#FBFBFA] p-3.5 text-sm text-[#787774] leading-relaxed mb-6">
+  <span className="font-semibold text-[#191919]">⚡ Quick Note:</span> These demos aren't fully complete—they just show our design style. If you're interested, we can build a completely custom website for you, or you can pick from the list of designs below and we'll set it up for you!
+</div>   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {demos.map((d) => (
               <Link
                 key={d.href}
