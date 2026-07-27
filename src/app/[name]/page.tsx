@@ -31,7 +31,7 @@ const DEMO_VIDEO_URL =
 // in-progress pills rather than a finished ecosystem list.
 const PRODUCTS = [
   { name: "NexPetCare Booking", href: "https://www.nexpetcare.org/", logo: "/loho.png" },
-  { name: "NexPetCare", href: "https://nexpetcare.com/", logo: "/logo.svg" },
+  { name: "NexPetCare", href: "https://nexpetcare.info/", logo: "/logo.svg" },
 ];
 
 const demos = [
