@@ -34,11 +34,11 @@ export default async function WebsiteOne({
       <Navbar data={data.navbar} />
       <Homepage data={data.hero} />
       <StatsBanner data={data.statsBanner} />
+      <GallerySection />
       <AboutSection data={data.about} />
       <ServicesSection data={data.services} />
       <ProcessSection data={data.process} />
       <ComparisonSection data={data.comparison} />
-      <GallerySection />
       <ReviewsSection data={data.reviews} />
       <InsightsSection data={data.insights} />
       <CTASection />
