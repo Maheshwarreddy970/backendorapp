@@ -76,10 +76,10 @@ export default function DemoSideTrigger({ slug }: { slug: string }) {
       <button
         onClick={handleManualOpen}
         aria-label="More options"
-        className="fixed left-0 top-1/2 z-50 -translate-y-1/2 flex items-center gap-1.5 rounded-r-xl bg-primary text-primary-foreground py-4 pl-2.5 pr-3.5 shadow-lg transition-all duration-200 hover:pl-5 hover:shadow-xl"
+        className="fixed left-0 animate-bounce top-1/2 z-50 -translate-y-1/2 flex items-center gap-1.5 rounded-r-xl bg-primary text-primary-foreground py-4 pl-2.5 pr-3.5 shadow-lg transition-all duration-200 hover:pl-5 hover:shadow-xl"
       >
         <Sparkles className="h-4 w-4" />
-        <span className="text-xs font-medium [writing-mode:vertical-rl] rotate-180">
+        <span className="text-xs font-medium [writing-mode:vertical-rl] rotate-180 ">
           More info
         </span>
       </button>
