@@ -9,42 +9,50 @@ const defaultStatsData = {
 };
 
 export default function StatsBanner({ data = defaultStatsData }) {
+    const statsData = {
+        ...defaultStatsData,
+        ...data,
+        rating: { ...defaultStatsData.rating, ...data?.rating },
+        experience: { ...defaultStatsData.experience, ...data?.experience },
+    };
+
+    const starCount = 
+        Number.isFinite(statsData.rating.stars) && statsData.rating.stars >= 0 
+            ? statsData.rating.stars 
+            : 5;
+
     return (
         <section className="bg-[#1e0c05] py-16 md:py-20 w-full overflow-hidden">
             <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-8">
 
-                {/* Left Section: Slides down */}
                 <Reveal animation="down" className="max-w-[408px] w-full">
                     <h2 className="text-[#fdfdfd] text-center lg:text-left text-[22px] md:text-[24px] font-medium leading-[1.35] tracking-[-0.7px]">
-                        {data.heading}
+                        {statsData.heading}
                     </h2>
                 </Reveal>
 
-                {/* Right Section: Stats Group */}
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-16 sm:gap-20 md:gap-[120px]">
 
-                    {/* Stat 1: Scales up with a delay */}
                     <Reveal animation="scale" delay="delay-150" className="flex flex-col items-center text-center">
                         <div className="text-[#fdfdfd] text-[32px] font-medium tracking-[-1px] flex items-center">
-                            {data.rating.score}<span className="ml-1 text-[28px] text-white/90">{data.rating.max}</span>
+                            {statsData.rating.score}<span className="ml-1 text-[28px] text-white/90">{statsData.rating.max}</span>
                         </div>
                         <div className="flex items-center gap-1 mt-2 mb-2">
-                            {[...Array(data.rating.stars)].map((_, index) => (
+                            {[...Array(starCount)].map((_, index) => (
                                 <Star key={index} className="w-[17px] h-[17px] text-[#8c863a] fill-[#8c863a]" />
                             ))}
                         </div>
-                        <p className="text-[#fffaf8] text-[14px]">{data.rating.label}</p>
+                        <p className="text-[#fffaf8] text-[14px]">{statsData.rating.label}</p>
                     </Reveal>
 
-                    {/* Stat 2: Scales up with a longer delay */}
                     <Reveal animation="scale" delay="delay-300" className="flex flex-col items-center text-center">
                         <CalendarDays className="w-10 h-10 text-[#8c863a] stroke-[1.5]" />
                         <div className="flex flex-col mt-4">
                             <h3 className="text-[#fdfdfd] text-[18px] font-semibold leading-snug">
-                                {data.experience.title}
+                                {statsData.experience.title}
                             </h3>
                             <p className="text-[#fffaf8] text-[14px] mt-1 opacity-90">
-                                {data.experience.subtitle}
+                                {statsData.experience.subtitle}
                             </p>
                         </div>
                     </Reveal>
