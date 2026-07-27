@@ -62,7 +62,7 @@ export default function ComparisonSection({ data = defaultComparisonData }) {
                     </Reveal>
 
                     {/* VS Badge (Scales Up in the Center with a Delay) */}
-                    <div className="absolute left-1/2 -rotate-10 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 flex items-center justify-center">
+                    <div className="absolute md:mt-0 -mt-8 left-1/2 -rotate-10 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 flex items-center justify-center">
                         <Reveal animation="scale" delay="delay-300">
                             <div className="bg-[#a35c38] text-white rounded-full w-[60px] h-[60px] md:w-[64px] md:h-[64px] border-[4px] border-[#fffaf8] flex items-center justify-center shadow-sm">
                                 <span className="font-medium text-[20px] md:text-[22px] tracking-[-1px] uppercase">

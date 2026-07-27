@@ -83,8 +83,15 @@ export default function Navbar({ data = defaultNavbarData }) {
       </nav>
 
       {/* MOBILE TOP HEADER */}
-      <div className={`fixed top-0 left-0 w-full z-40 p-4 transition-all duration-300 md:hidden ${isScrolled ? "bg-white/80 backdrop-blur-lg shadow-sm" : "bg-transparent"
-        }`}>
+     <div
+  className={cn(
+    "fixed top-0 left-0 w-full z-40 p-4 transition-all duration-300 md:hidden",
+    {
+      "bg-white/10 backdrop-blur-lg shadow-sm": isScrolled,
+      "bg-transparent": !isScrolled,
+    }
+  )}
+>
         <a href="/" className="relative flex items-center w-32 h-10">
           {logo.src ? (
             <img

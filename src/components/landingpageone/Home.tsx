@@ -13,7 +13,7 @@ const defaultHeroData = {
 
 export default function HeroSection({ data = defaultHeroData }) {
     return (
-        <section className="relative w-full lg:min-h-[115vh] h-screen flex items-center overflow-hidden">
+        <section className="relative w-full lg:min-h-[115vh] h-screen flex md:items-center items-end overflow-hidden">
             <Image
                 src="/homeimage.avif"
                 alt="Dog being groomed"
@@ -28,10 +28,10 @@ export default function HeroSection({ data = defaultHeroData }) {
                     {/* Animate Heading from the Left */}
                     <Reveal animation="left">
                         <div className="flex flex-col gap-6 md:gap-8">
-                            <h1 className="text-[#1e0c05] font-normal text-5xl md:text-6xl lg:text-[80px] leading-[1.1] tracking-[-2px] lg:tracking-[-5px]">
+                            <h1 className="text-[#1e0c05] font-normal text-4xl font-bold md:text-6xl lg:text-[80px] leading-[1.1] tracking-[-2px] lg:tracking-[-5px]">
                                 {data.heading}
                             </h1>
-                            <p className="text-[#1e0c05] text-base md:text-[18px] leading-[1.6] max-w-[380px]">
+                            <p className="text-[#1e0c05] text-sm md:text-[18px] leading-[1.6] max-w-[380px]">
                                 {data.description}
                             </p>
                         </div>

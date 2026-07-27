@@ -14,6 +14,7 @@ import ReviewsSection from "@/components/landingpageone/ReviewsSection";
 import InsightsSection from "@/components/landingpageone/InsightsSection";
 import CTASection from "@/components/landingpageone/CTASection";
 import Footer from "@/components/landingpageone/footer";
+import DemoSideTrigger from "./demotrigger";
 
 export default async function WebsiteOne({
   params
@@ -30,7 +31,6 @@ export default async function WebsiteOne({
   const data = dbData.websiteTwoData;
   return (
     <>
-      {/* Notice Navbar and Footer are brought in here directly */}
       <Navbar data={data.navbar} />
       <Homepage data={data.hero} />
       <StatsBanner data={data.statsBanner} />
@@ -38,12 +38,12 @@ export default async function WebsiteOne({
       <ServicesSection data={data.services} />
       <ProcessSection data={data.process} />
       <ComparisonSection data={data.comparison} />
-      <GallerySection></GallerySection>
+      <GallerySection />
       <ReviewsSection data={data.reviews} />
       <InsightsSection data={data.insights} />
       <CTASection />
       <Footer data={data.footer} />
-
+      <DemoSideTrigger slug={name} />
     </>
   );
 }
