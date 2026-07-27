@@ -12,6 +12,7 @@ import {
   ExternalLink,
   PenTool,
   LayoutGrid,
+  Zap,
 } from "lucide-react";
 import VideoPlayer from "@/components/video-player"; // Your existing video component
 import Linkedinicon from "@/icons/linkedinicon";
@@ -170,10 +171,10 @@ export default async function ClientPortalPage({
               Local service business
             </span>
             <Link href="https://www.linkedin.com/in/maheshwarr-reddy-713927258/" target="_blank" rel="noopener noreferrer" className="flex gap-1 hover:scale-105 ease-in-out duration-300 hover:translate-y-0.5 ">
-            <Linkedinicon className="size-7"></Linkedinicon>
-            <span className="inline-flex items-center gap-1.5 rounded-md bg-[#F1EFEE] px-2.5 py-1 font-medium text-[#787774]">
-              Prepared by Maheshwar Reddy
-            </span>
+              <Linkedinicon className="size-7"></Linkedinicon>
+              <span className="inline-flex items-center gap-1.5 rounded-md bg-[#F1EFEE] px-2.5 py-1 font-medium text-[#787774]">
+                Prepared by Maheshwar Reddy
+              </span>
             </Link>
           </div>
         </div>
@@ -209,11 +210,11 @@ export default async function ClientPortalPage({
             <h3 className="text-xs font-semibold uppercase tracking-wider text-[#9B9A97]">
               Your live previews
             </h3>
-           
+
           </div>
-<div className="rounded-lg border border-[#EAEAE9] bg-[#FBFBFA] p-3.5 text-sm text-[#787774] leading-relaxed mb-6">
-  <span className="font-semibold text-[#191919]">⚡ Quick Note:</span> These demos aren't fully complete—they just show our design style. If you're interested, we can build a completely custom website for you, or you can pick from the list of designs below and we'll set it up for you!
-</div>   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="rounded-lg border border-[#EAEAE9] bg-[#FBFBFA] p-3.5 text-sm text-[#787774] leading-relaxed mb-6">
+            <span className="font-semibold text-[#191919]">⚡ Quick Note:</span> These demos aren't fully complete—they just show our design style. If you're interested, we can build a completely custom website for you, or you can pick from the list of designs below and we'll set it up for you!
+          </div>   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {demos.map((d) => (
               <Link
                 key={d.href}
@@ -250,6 +251,69 @@ export default async function ClientPortalPage({
                 </div>
               </Link>
             ))}
+          </div>
+        </section>
+{/* ---------- PRICING ---------- */}
+        <section className="mt-16 mx-auto max-w-2xl px-4">
+          {/* Header */}
+          <div className="mb-2 flex items-center justify-center gap-2">
+            <Sparkles className="h-4 w-4 text-amber-500" />
+            <h3 className="text-xs font-bold uppercase tracking-widest text-[#9B9A97]">
+              Exclusive Pricing
+            </h3>
+          </div>
+          <p className="mb-8 text-center text-sm font-medium text-[#787774]">
+            Because the structural framework is already built, we can hand over the keys at our raw baseline cost.
+          </p>
+
+          {/* Pricing Card */}
+          <div className="relative rounded-2xl border-2 border-[#191919] bg-white p-8 shadow-2xl transition-transform hover:-translate-y-1">
+            <span className="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-[#191919] px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white">
+              The Complete Digital Storefront
+            </span>
+
+            <div className="mt-2 flex flex-col items-center justify-center text-center">
+              <div className="flex items-baseline gap-2">
+                <span className="text-5xl font-extrabold text-[#191919]">$799</span>
+                <span className="text-lg font-medium text-[#B7B6B3] line-through">$1,999</span>
+              </div>
+              <p className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1 text-sm font-semibold text-emerald-700">
+                <Zap className="h-4 w-4" />
+                One-time flat fee. Zero monthly retainers.
+              </p>
+            </div>
+
+            <div className="my-8 h-px w-full bg-gray-100" />
+
+            <ul className="space-y-4 text-sm font-medium text-[#504e49]">
+              <li className="flex items-start gap-3">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#0F7B6C]" />
+                <span>Custom-branded with your logo, colors, and real photos</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#0F7B6C]" />
+                <span>Built-in 24/7 sales funnel optimized to capture new pet parents</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#0F7B6C]" />
+                <span>Direct integration with your existing booking link (MoeGo, Square, etc.)</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#0F7B6C]" />
+                <span>Mobile-first design so it looks perfect on every phone</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#0F7B6C]" />
+                <span>100% ownership transferred to you immediately</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* The "Wow Moment" Custom Build Up-sell */}
+          <div className="mt-6 rounded-xl border border-gray-200 bg-gray-50 p-5 text-center">
+            <p className="text-sm font-medium text-[#504e49]">
+              <strong className="text-[#191919]">Need something totally unique?</strong> If you want a bespoke design built entirely from scratch, let's chat. We can build a custom web experience that creates an absolute "wow" moment for your clients.
+            </p>
           </div>
         </section>
 
@@ -304,51 +368,7 @@ export default async function ClientPortalPage({
           </div>
         </section>
 
-        {/* ---------- PRICING ---------- */}
-        <section className="mt-16">
-          <div className="flex items-center gap-2 mb-2">
-            <Sparkles className="w-4 h-4 text-[#9B9A97]" />
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-[#9B9A97]">
-              Exclusive pricing
-            </h3>
-          </div>
-          <p className="text-sm text-[#787774] mb-6">
-            Because the structural framework is already built, this comes in well under standard
-            agency rates.
-          </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            <div className="card-lift rounded-xl border border-[#EAEAE9] bg-white p-6">
-              <p className="text-sm font-medium text-[#9B9A97]">Custom landing page</p>
-              <div className="mt-2 flex items-baseline gap-2">
-                <span className="text-3xl font-semibold">$799</span>
-                <span className="text-sm text-[#B7B6B3] line-through">$1,999</span>
-              </div>
-              <ul className="mt-5 space-y-2.5 text-sm text-[#504e49]">
-                <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-[#0F7B6C] shrink-0" /> Custom-designed, mobile responsive</li>
-                <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-[#0F7B6C] shrink-0" /> Direct booking &amp; contact CTAs built in</li>
-                <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-[#0F7B6C] shrink-0" /> Zero ongoing maintenance fees</li>
-              </ul>
-            </div>
-
-            <div className="card-lift relative rounded-xl border-2 border-[#191919] bg-white p-6">
-              <span className="absolute -top-3 left-6 rounded-full bg-[#191919] px-3 py-1 text-xs font-medium text-white">
-                Most complete
-              </span>
-              <p className="text-sm font-medium text-[#9B9A97]">Full booking platform</p>
-              <div className="mt-2 flex items-baseline gap-2">
-                <span className="text-3xl font-semibold">$1,999</span>
-                <span className="text-sm text-[#B7B6B3] line-through">$2,999</span>
-              </div>
-              <ul className="mt-5 space-y-2.5 text-sm text-[#504e49]">
-                <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-[#0F7B6C] shrink-0" /> Everything in the landing page tier</li>
-                <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-[#0F7B6C] shrink-0" /> Full admin dashboard &amp; calendar</li>
-                <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-[#0F7B6C] shrink-0" /> Client management &amp; automated booking</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
+        
         {/* ---------- SOFTWARE DEMO VIDEO ---------- */}
         <section className="mt-16 pb-16">
           <h3 className="text-xl font-semibold">Curious about the full platform?</h3>
