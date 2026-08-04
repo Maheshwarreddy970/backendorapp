@@ -10,7 +10,7 @@ export const seoCardData = {
       micIcon: "/svg-image-16.svg"
     },
     searchResult: {
-      brandLogo: "/svg-image-17.svg",
+      brandLogo: "/",
       brandName: "YourPetSpa.com",
       breadcrumbs: ["www.yourpetspa.com", "services", "grooming"],
       heading: "Premium Dog Grooming & Pet Care Services"
@@ -28,7 +28,7 @@ export default function SeoCard() {
         <div className="absolute inset-0 right-0 top-0 h-full w-full">
           <img
             className="ml-20 h-full w-full"
-            src={'/logohome.jpg'}
+            src={bgSvg}
             alt="Background Path"
           />
         </div>
@@ -83,7 +83,7 @@ export default function SeoCard() {
                 <div className="inline-flex items-center justify-start gap-3">
                   <div className="overflow-hidden">
                     <img
-                      src={searchResult.brandLogo}
+                      src={"/lkjladflk.png"}
                       alt={searchResult.brandName}
                       className="size-8"
                     />

@@ -1,38 +1,38 @@
 import React from 'react';
 
 export const PRICING_DATA = {
-  header: {
-    title: "Simple, Transparent Pricing",
-    contactPrefix: "Have questions? Reach out to us at",
-    email: "contact@nexpetcare.online",
-    conjunction: "or",
-    chatText: "book a setup call",
-  },
-  plan: {
-    title: "The Digital Storefront",
-    availability: "Limited Spots Available",
-    heading: "Complete Website Handover",
-    subheading: "for Groomers & Kennels",
-    currency: "$",
-    price: "799",
-    period: " one-time", // Changed to one-time based on your agency model
-    ctaText: "Get Started",
-    avatar: {
-      alt: "Maheshwar Avatar",
-      src: "/_next/image?url=%2Fme.jpg&w=64&q=75&dpl=dpl_Co7REAcqPw8uCaqm4WqZHLBHKqVY",
-      srcSet: "/_next/image?url=%2Fme.jpg&w=32&q=75&dpl=dpl_Co7REAcqPw8uCaqm4WqZHLBHKqVY 1x, /_next/image?url=%2Fme.jpg&w=64&q=75&dpl=dpl_Co7REAcqPw8uCaqm4WqZHLBHKqVY 2x",
+    header: {
+        title: "Simple, Transparent Pricing",
+        contactPrefix: "Have questions? Reach out to us at",
+        email: "nexpetcare@gmail.com",
+        conjunction: "or",
+        chatText: "book a setup call",
     },
-  },
-  features: [
-    "Complete Custom Website Build",
-    "Zero Monthly Hosting Fees (Life-time)",
-    "Booking Software Integration (MoeGo, Square, etc.)",
-    "Mobile-First & High-Speed React Tech",
-    "SEO Protection & 301 Redirects",
-    "Done-For-You Domain Connection",
-    "Access to Private Website Editor",
-    "1-Year Technical Support Guarantee",
-  ],
+    plan: {
+        title: "The Digital Storefront",
+        availability: "Limited Spots Available",
+        heading: "Complete Website Handover",
+        subheading: "for Groomers & Kennels",
+        currency: "$",
+        price: "799",
+        period: " one-time", // Changed to one-time based on your agency model
+        ctaText: "Get Started",
+        avatar: {
+            alt: "Maheshwar Avatar",
+            src: "/_next/image?url=%2Fme.jpg&w=64&q=75&dpl=dpl_Co7REAcqPw8uCaqm4WqZHLBHKqVY",
+            srcSet: "/_next/image?url=%2Fme.jpg&w=32&q=75&dpl=dpl_Co7REAcqPw8uCaqm4WqZHLBHKqVY 1x, /_next/image?url=%2Fme.jpg&w=64&q=75&dpl=dpl_Co7REAcqPw8uCaqm4WqZHLBHKqVY 2x",
+        },
+    },
+    features: [
+        "Complete Custom Website Build",
+        "Zero Monthly Hosting Fees (Life-time)",
+        "Booking Software Integration (MoeGo, Square, etc.)",
+        "Mobile-First & High-Speed React Tech",
+        "SEO Protection & 301 Redirects",
+        "Done-For-You Domain Connection",
+        "Access to Private Website Editor",
+        "1-Year Technical Support Guarantee",
+    ],
 };
 
 export default function Pricing() {
@@ -57,9 +57,9 @@ export default function Pricing() {
                         {header.email}
                     </a>{" "}
                     {header.conjunction}{" "}
-                    <button className="cursor-pointer text-emerald-400 underline underline-offset-3 hover:text-emerald-300 transition-colors">
+                    <a className="cursor-pointer text-emerald-400 underline underline-offset-3 hover:text-emerald-300 transition-colors">
                         {header.chatText}
-                    </button>
+                    </a>
                 </div>
             </div>
 
