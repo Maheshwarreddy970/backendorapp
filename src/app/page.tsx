@@ -1,28 +1,57 @@
-import { Mail } from "lucide-react";
+import ComparisonTable from "@/components/mainlandingpage/ComparisonTable";
+import FaqSection from "@/components/mainlandingpage/FaqSection";
+import Featurescriton from "@/components/mainlandingpage/Featurescriton";
+import Footer from "@/components/mainlandingpage/Footer";
+import FounderDesk from "@/components/mainlandingpage/FounderDesk";
+import Homepage from "@/components/mainlandingpage/Homepage";
+import Pricing from "@/components/mainlandingpage/Pricing";
+import ProjectsSection from "@/components/mainlandingpage/ProjectsSection";
+
+// Defined as JS constants instead of external JSON imports
+export const homepageData = {
+  badge: {
+    label: "NexPetCare Tech",
+    subtext: "Digital Storefronts for Pet Care",
+    url: "https://nexpetcare.online/",
+  },
+  heading: "The best design & development agency for pet businesses.",
+  subheading: "We design and build lightning-fast websites that drive bookings for groomers, kennels, and pet spas. No monthly hosting fees. Just results.",
+  cta: {
+    label: "Chat with Maheshwar",
+    avatar: {
+      src: "/_next/image?url=%2Fme.jpg&w=64&q=75&dpl=dpl_Co7REAcqPw8uCaqm4WqZHLBHKqVY",
+      srcSet: "/_next/image?url=%2Fme.jpg&w=32&q=75&dpl=dpl_Co7REAcqPw8uCaqm4WqZHLBHKqVY 1x, /_next/image?url=%2Fme.jpg&w=64&q=75&dpl=dpl_Co7REAcqPw8uCaqm4WqZHLBHKqVY 2x",
+      alt: "Maheshwar Avatar",
+    },
+  },
+  watermark: "NexPetCare",
+};
+export const featureSectionData = {
+  heading: "Replace Your Outdated Website",
+  card: {
+    title: "Custom Design & Development",
+    description:
+      "Designed to perfection, NexPetCare helps you turn website visitors into fully booked appointments through our expert mobile-first web services.",
+    buttonText: "View pricing",
+    buttonUrl: "#pricing",
+    previewImageUrl: "",
+  },
+};
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-white text-black px-6 selection:bg-black selection:text-white font-[family-name:var(--font-inter)]">
-      <div className="text-center max-w-md">
-        {/* Stealth Heading */}
-        <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">
-          NexPetCare
-        </h1>
-        
-        {/* Ultra-simple subtext */}
-        <p className="mt-4 text-base font-medium">
-          Need a website?
-        </p>
-        
-        {/* Mailto Button (Inverts on hover) */}
-        <a
-          href="mailto:nexpetcare@gmail.com?subject=I'm interested in a custom grooming website"
-          className="mt-8 group inline-flex items-center justify-center gap-2.5 border-2 border-black bg-black px-8 py-3.5 text-sm font-semibold text-white transition-all hover:bg-white hover:text-black"
-        >
-          <Mail className="h-4 w-4" />
-          Contact us
-        </a>
-      </div>
-    </main>
+    <section className="flex max-w-screen overflow-x-hidden flex-col items-center justify-center">
+      <Homepage content={homepageData} />
+      <Featurescriton
+        heading={featureSectionData.heading}
+        cardContent={featureSectionData.card}
+      />
+      <ProjectsSection />
+      <ComparisonTable />
+      <Pricing />
+      <FounderDesk />
+      <FaqSection />
+      <Footer />
+    </section>
   );
 }

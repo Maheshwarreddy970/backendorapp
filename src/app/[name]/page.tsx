@@ -80,6 +80,8 @@ export default async function ClientPortalPage({
   const { name } = await params;
   const website = await getWebsiteData(name);
 
+  console.log(website);
+
   if (!website) {
     notFound();
   }
