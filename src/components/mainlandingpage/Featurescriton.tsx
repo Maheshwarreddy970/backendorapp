@@ -8,6 +8,7 @@ import FeatureCard from "./ServiceCard";
 export default function Featurescriton({ heading, cardContent }:any) {
   return (
     <div
+      id="features"
       data-slot="container"
       className="max-w-container mx-auto w-full px-4 sm:px-6 lg:px-20 flex flex-col gap-15 py-4"
     >

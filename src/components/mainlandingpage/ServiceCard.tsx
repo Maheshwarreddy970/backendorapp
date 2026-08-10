@@ -4,7 +4,7 @@ export default function FeatureCard({ content }: any) {
   const { title, description, buttonText, buttonUrl, previewImageUrl } = content;
 
   return (
-    <div className="bg-natural-black relative col-span-19 grid overflow-hidden rounded-2xl p-4 lg:col-span-6">
+    <div className="bg-natural-black border shadow relative col-span-19 grid overflow-hidden rounded-2xl p-4 lg:col-span-6">
       {/* CSS Keyframes */}
       <style>{`
         @keyframes float-window {

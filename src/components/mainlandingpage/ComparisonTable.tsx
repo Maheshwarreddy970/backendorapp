@@ -315,7 +315,7 @@ export default function ComparisonTable() {
   return (
     <div
       data-slot="container"
-      className="max-w-container mx-auto w-full px-4 sm:px-6 lg:px-20 flex flex-col gap-15 py-20 md:py-30"
+      className="max-w-container mx-auto w-full px-4 sm:px-6 lg:px-20 flex flex-col gap-15 pt-20 md:pt-40"
     >
       <div className="flex flex-col gap-6">
         <h2 className="text-heading text-left text-4xl font-semibold tracking-tight md:text-5xl">

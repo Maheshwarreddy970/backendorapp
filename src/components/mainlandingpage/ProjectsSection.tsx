@@ -17,10 +17,10 @@ const templates = [
 
 export default function TemplatesSection() {
   return (
-    <section className="w-full">
+    <section className="max-w-container mx-auto w-full px-4 sm:px-6 lg:px-20 ">
       <div
         data-slot="container"
-        className="mx-auto relative flex w-full max-w-7xl flex-col gap-20 overflow-hidden px-4 pt-40 pb-20 sm:px-6 md:pt-65 md:pb-30 lg:px-8 lg:pt-80 lg:pb-30"
+        className="mx-auto relative flex w-full flex-col gap-20 overflow-hidden px-4 pt-40 pb-20 sm:px-6 md:pt-65 md:pb-30 lg:px-8  lg:pb-30"
       >
         <div>
           <h2 className="from-[#8C8879] to-transparent bg-gradient-to-b bg-clip-text text-transparent absolute top-20 overflow-hidden opacity-25 -tracking-xl text-6xl font-medium md:top-30 md:text-8xl lg:top-50 lg:text-[10rem]">

@@ -1,27 +1,38 @@
 "use client";
 
 import React, { useState } from "react";
-
 export const faqs = [
   {
     question: "Do I have to pay monthly hosting fees?",
-    answer: "No. Unlike Wix or Squarespace, you do not pay us (or anyone else) a monthly fee just to keep your website online. We deploy your site on a free, global enterprise network called Netlify. You only pay our flat $799 setup fee once."
+    answer: "No. Unlike Wix, Squarespace, or traditional web agencies, you do not pay us a monthly fee just to keep your website online. We host your site on our secure, lightning-fast cloud network for free. You only pay our flat $799 setup fee once."
+  },
+  {
+    question: "Can I keep my current domain name?",
+    answer: "Yes, absolutely. You retain 100% ownership of your domain (like www.yourgrooming.com). When the new site is ready, we will personally guide you through pointing your domain to the new layout so you don't have to deal with the tech."
   },
   {
     question: "Will I lose my current Google SEO ranking?",
-    answer: "No, your rankings will actually be protected and likely improve. Because our sites are custom-coded in React, they are lightning-fast. We also set up proper '301 Redirects' so Google knows your old pages have securely moved to the new design."
+    answer: "No, your rankings will actually be protected and likely improve. Because our sites are custom-coded in React, they are incredibly fast, which Google loves. We also set up proper '301 Redirects' so Google knows your old pages have securely moved to the new design without losing your search history."
   },
   {
     question: "Does this connect to my booking software?",
-    answer: "Yes! The website acts as your 'digital storefront.' We embed links directly to your existing booking software (like MoeGo, Square, Acuity, or Gingr) so clients can easily book, pay deposits, and fill out intake forms."
-  },
-  {
-    question: "Do I have to set up the technical stuff myself?",
-    answer: "Not at all. We jump on a quick Google Meet with you, share our screen, and handle the complex technical connections (like pointing your domain name) for you so nothing breaks."
+    answer: "Yes! Your website acts as your 'digital storefront.' We embed links directly to your existing booking software (like Square, MoeGo, Acuity, or Gingr) so clients can easily book, pay deposits, and fill out intake forms seamlessly."
   },
   {
     question: "What if I need to update text or photos later?",
-    answer: "We provide you with a private, easy-to-use editor. If you ever need to change a price, update your hours, or swap a photo of a dog, you just log in and type. No coding required."
+    answer: "We provide you with a private, easy-to-use client dashboard. If you ever need to change a price, update your hours, or swap a photo of a dog, you just log in, click, and type. No coding or web developer required."
+  },
+  {
+    question: "Most of my clients book on their phones. Is this mobile-friendly?",
+    answer: "100%. Over 80% of pet parents search for groomers on their cell phones. We design our websites 'mobile-first,' meaning the buttons, photos, and layouts are specifically optimized to look beautiful and convert visitors into clients on any mobile device."
+  },
+  {
+    question: "Do I have to set up the technical stuff myself?",
+    answer: "Not at all. We do all the heavy lifting. Once you approve the final design, we jump on a quick Google Meet with you, share our screen, and handle the complex technical connections for you so nothing breaks."
+  },
+  {
+    question: "Do I own the website, or am I locked into a contract?",
+    answer: "You own the website outright. There are zero ongoing agency retainers or lock-in contracts. If you ever decide you want to leave our platform in the future, you can download your website files and take them with you."
   }
 ];
 
