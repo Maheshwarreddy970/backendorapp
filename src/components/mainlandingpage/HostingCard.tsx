@@ -14,7 +14,7 @@ export default function HostingCard() {
           {HOSTING_CARD_DATA.heading}
         </h2>
         
-        <div className="absolute inset-0 w-full overflow-hidden bg-neutral-950 mask-t-from-50% mask-radial-from-90%">
+        <div className="absolute inset-0 w-full overflow-hidden bg-neutral-950 ">
           <div className="absolute inset-0 flex items-center justify-center [&>svg]:fill-white">
             <DottedMap<MyMarker>
               markers={HOSTING_CARD_DATA.markers as MyMarker[]}

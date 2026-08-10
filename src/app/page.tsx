@@ -28,7 +28,6 @@ export const homepageData = {
   watermark: "NexPetCare",
 };
 export const featureSectionData = {
-  heading: "Replace Your Outdated Website",
   card: {
     title: "Custom Design & Development",
     description:
@@ -44,12 +43,11 @@ export default function Home() {
     <section className="flex max-w-screen overflow-x-hidden flex-col items-center justify-center">
       <Homepage content={homepageData} />
       <ComparisonTable />
-      <ProjectsSection />
       <Featurescriton
-        heading={featureSectionData.heading}
         cardContent={featureSectionData.card}
       />
       <FeatureGridDemo></FeatureGridDemo>
+      <ProjectsSection />
       <Pricing />
       <FounderDesk />
       <FaqSection />

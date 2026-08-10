@@ -80,10 +80,16 @@ export const HOSTING_CARD_DATA = {
       overlay: { countryCode: "ae", label: "Dubai" },
     },
     {
-      lat: -14.235,
-      lng: -51.9253,
+      lat: 56.1304,
+      lng: -106.3468,
       size: 2.8,
-      overlay: { countryCode: "br", label: "Brazil" },
+      overlay: { countryCode: "ca", label: "Canada" },
+    },
+    {
+      lat: 51.1657,
+      lng: 10.4515,
+      size: 2.8,
+      overlay: { countryCode: "de", label: "Europe" }, // Using Germany coordinates/code as a central European hosting location
     },
   ],
 };
