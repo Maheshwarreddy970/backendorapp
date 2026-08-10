@@ -106,13 +106,55 @@ interface ComparisonRow {
 }
 
 export const rows = [
-  { key: "approach", icon: icons.approach, label: "Approach", good: "Built specifically for pet care businesses", bad: "Generic agency templates" },
-  { key: "process", icon: icons.process, label: "Process", good: "Done-for-you technical setup & domain transfer", bad: "You have to figure out the tech yourself" },
-  { key: "design-philosophy", icon: icons.designPhilosophy, label: "Design Philosophy", good: "Mobile-first, conversion-focused layouts", bad: "Cluttered designs that confuse clients" },
-  { key: "dev-stack", icon: icons.devStack, label: "Development Stack", good: "Custom-coded React for maximum speed", bad: "Slow drag-and-drop builders (Wix/Squarespace)" },
-  { key: "pricing", icon: icons.communication, label: "Pricing Model", good: "One-time flat fee. Zero ongoing costs.", bad: "Expensive monthly retainers forever" },
-  { key: "support", icon: icons.support, label: "Support", good: "1-year free technical support included", bad: "Charged by the hour for basic fixes" },
-  { key: "deliverables", icon: icons.deliverables, label: "Deliverables", good: "Full ownership of your website files", bad: "Trapped in an agency ecosystem" },
+  { 
+    key: "pricing", 
+    icon: icons.deliverables, 
+    label: "Pricing Model", 
+    good: "One-time flat fee. Zero monthly hosting costs.", 
+    bad: "Trapped paying expensive monthly retainers forever" 
+  },
+  { 
+    key: "editing", 
+    icon: icons.process, 
+    label: "Making Updates", 
+    good: "Private point-and-click dashboard for instant edits", 
+    bad: "Paying a web developer every time you change a photo" 
+  },
+  { 
+    key: "dev-stack", 
+    icon: icons.devStack, 
+    label: "Performance", 
+    good: "Custom React code for lightning-fast mobile speeds", 
+    bad: "Slow drag-and-drop builders (Wix/Squarespace) that hurt SEO" 
+  },
+  { 
+    key: "design-philosophy", 
+    icon: icons.designPhilosophy, 
+    label: "Booking Integration", 
+    good: "Seamlessly funnels clients to your booking software", 
+    bad: "Cluttered, confusing pages that lose potential clients" 
+  },
+  { 
+    key: "seo", 
+    icon: icons.approach, 
+    label: "Google SEO", 
+    good: "Full SEO protection & 301 redirects included", 
+    bad: "Losing your hard-earned Google rankings during a switch" 
+  },
+  { 
+    key: "approach", 
+    icon: icons.communication, 
+    label: "Industry Focus", 
+    good: "Built exclusively for pet groomers and kennels", 
+    bad: "Generic agency templates meant for any random business" 
+  },
+  { 
+    key: "support", 
+    icon: icons.support, 
+    label: "Technical Setup", 
+    good: "Done-for-you domain connection & 1-year free support", 
+    bad: "Forced to figure out confusing DNS settings by yourself" 
+  }
 ];
 /* ------------------------------- CTA Button -------------------------------- */
 

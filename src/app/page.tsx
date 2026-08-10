@@ -42,12 +42,12 @@ export default function Home() {
   return (
     <section className="flex max-w-screen overflow-x-hidden flex-col items-center justify-center">
       <Homepage content={homepageData} />
-      <ComparisonTable />
       <Featurescriton
         cardContent={featureSectionData.card}
       />
       <FeatureGridDemo></FeatureGridDemo>
       <ProjectsSection />
+      <ComparisonTable />
       <Pricing />
       <FounderDesk />
       <FaqSection />
