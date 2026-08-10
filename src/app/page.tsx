@@ -5,6 +5,7 @@ import Footer from "@/components/mainlandingpage/Footer";
 import FounderDesk from "@/components/mainlandingpage/FounderDesk";
 import Homepage from "@/components/mainlandingpage/Homepage";
 import FeatureGridDemo from "@/components/mainlandingpage/moreftures";
+import { HeroHeader } from "@/components/mainlandingpage/Navbar";
 import Pricing from "@/components/mainlandingpage/Pricing";
 import ProjectsSection from "@/components/mainlandingpage/ProjectsSection";
 
@@ -41,6 +42,8 @@ export const featureSectionData = {
 export default function Home() {
   return (
     <section className="flex max-w-screen overflow-x-hidden flex-col items-center justify-center">
+              <HeroHeader />
+
       <Homepage content={homepageData} />
       <Featurescriton
         cardContent={featureSectionData.card}
