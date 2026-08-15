@@ -7,3 +7,4 @@ export default function Linkedinicon({className}: {className?: string}) {
         </svg>
     )
 }
+

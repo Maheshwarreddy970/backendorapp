@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import VideoPlayer from "@/components/video-player"; // Your existing video component
 import Linkedinicon from "@/icons/linkedinicon";
+import YoutubeIcon from "@/icons/YoutubeIcon";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -178,6 +179,18 @@ export default async function ClientPortalPage({
                 Prepared by Maheshwar Reddy
               </span>
             </Link>
+            {/* YouTube */}
+            <Link
+              href="https://www.youtube.com/@Nexpetcare"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-1 hover:scale-105 ease-in-out duration-300 hover:translate-y-0.5"
+            >
+              <YoutubeIcon className="size-7" />
+              <span className="inline-flex items-center gap-1.5 rounded-md bg-[#F1EFEE] px-2.5 py-1 font-medium text-[#787774] transition-colors group-hover:text-black">
+                See what we're building
+              </span>
+            </Link>
           </div>
         </div>
 
@@ -255,7 +268,7 @@ export default async function ClientPortalPage({
             ))}
           </div>
         </section>
-{/* ---------- PRICING ---------- */}
+        {/* ---------- PRICING ---------- */}
         <section className="mt-16 mx-auto max-w-2xl px-4">
           {/* Header */}
           <div className="mb-2 flex items-center justify-center gap-2">
@@ -370,27 +383,7 @@ export default async function ClientPortalPage({
           </div>
         </section>
 
-        
-        {/* ---------- SOFTWARE DEMO VIDEO ---------- */}
-        <section className="mt-16 pb-16">
-          <h3 className="text-xl font-semibold">Curious about the full platform?</h3>
-          <p className="mt-2 text-sm text-[#787774]">
-            A 2-minute look inside the NexPetCare admin dashboard that runs the $1,999 tier.
-          </p>
-          <div className="mt-6 overflow-hidden rounded-xl border border-[#EAEAE9] card-lift">
-            <div className="flex items-center gap-1.5 border-b border-[#EAEAE9] bg-[#FBFBFA] px-3 py-2.5">
-              <span className="h-2.5 w-2.5 rounded-full bg-[#F3B0A6]" />
-              <span className="h-2.5 w-2.5 rounded-full bg-[#F5DDA0]" />
-              <span className="h-2.5 w-2.5 rounded-full bg-[#B7DFC5]" />
-              <span className="ml-2 rounded-md bg-white border border-[#EAEAE9] px-2 py-0.5 text-[11px] text-[#9B9A97]">
-                app.nexpetcare.com/dashboard
-              </span>
-            </div>
-            <div className="bg-black">
-              <VideoPlayer src={DEMO_VIDEO_URL} />
-            </div>
-          </div>
-        </section>
+
       </div>
 
       <footer className="border-t border-[#EAEAE9] bg-[#FBFBFA] py-8">
