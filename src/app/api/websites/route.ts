@@ -1,43 +1,59 @@
-// app/api/websites/route.ts
 import { NextResponse } from "next/server";
-import { db } from "@/lib/firebase"; // Ensure this points to your Firebase config
-import { doc, setDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
+import { db } from "@/lib/firebase";
 
 export async function POST(request: Request) {
   try {
-    // 1. Parse the incoming JSON from n8n
     const data = await request.json();
 
-    // 2. Validate that we have a slug (which acts as the document ID)
     if (!data.slug) {
       return NextResponse.json(
-        { error: "Missing 'slug' in the request body" }, 
+        { error: "Missing 'slug' in the request body" },
         { status: 400 }
       );
     }
 
-    // 3. Reference the specific document in the "websites" collection
     const websiteDocRef = doc(db, "websites", data.slug);
+    const snap = await getDoc(websiteDocRef);
+    const existing = snap.exists() ? snap.data() : {};
+    const now = new Date().toISOString();
 
-    // 4. Save the data to Firebase (merge: true updates existing docs without overwriting everything)
-    await setDoc(websiteDocRef, {
+    const payload: Record<string, unknown> = {
       slug: data.slug,
-      websiteOneData: data.websiteOneData || null,
-      websiteTwoData: data.websiteTwoData || null,
-      emailCampaign: data.emailCampaign || null,
-      lastUpdated: new Date().toISOString(),
-    }, { merge: true });
+      lastUpdated: now,
+    };
 
-    // 5. Return success to n8n
+    if (data.websiteOneData) payload.websiteOneData = data.websiteOneData;
+    if (data.websiteTwoData) payload.websiteTwoData = data.websiteTwoData;
+    if (data.emailCampaign) payload.emailCampaign = data.emailCampaign;
+
+    // Starting defaults. Only fill fields the document doesn't have yet,
+    // so re-running the workflow never overrides a deliberate change.
+    const defaults: Record<string, unknown> = {
+      clientName: data.clientName ?? "",
+      ownerEmail: data.ownerEmail ?? "",
+      customDomain: "",
+      domainStatus: "none",
+      isDeployed: true,
+      lastDeployed: now,
+      paid: false,
+      template: "websiteOne",
+    };
+
+    for (const [key, value] of Object.entries(defaults)) {
+      if (existing[key] === undefined) payload[key] = value;
+    }
+
+    await setDoc(websiteDocRef, payload, { merge: true });
+
     return NextResponse.json(
       { success: true, message: `Successfully saved data for ${data.slug}` },
       { status: 200 }
     );
-    
   } catch (error) {
     console.error("Error saving to Firebase:", error);
     return NextResponse.json(
-      { error: "Internal Server Error. Failed to save to Firebase." }, 
+      { error: "Internal Server Error. Failed to save to Firebase." },
       { status: 500 }
     );
   }
